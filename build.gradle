@@ -1,21 +1,4 @@
-// repositories {
-//     mavenCentral()
-// }
-// dependencies {
-//     implementation 'javac -classpath .:lib/junit-4.12.jar:lib/hamcrest-core-1.3.jar src/main/java/*.java src/test/java/*.java -d build'
-//     implementation 'junit:junit:4.12'
-//     implementation 'org.hamcrest:hamcrest-core:1.3'
-// }
-// task run(type: JavaExec) {
-//     dependsOn << testJava 
-//     classpath = files('build')
-//     main = 'RunEdgeConvert'
-// }
-// task testJava(type: JavaExec){
-//     classpath = sourceSets.test.runtimeClasspath
-//     main = 'org.junit.runner.JUnitCore'
-//     args 'EdgeConnectorTest'
-// }
+
 plugins {
     id 'java'
     id 'application'

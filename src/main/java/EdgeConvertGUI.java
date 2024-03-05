@@ -9,8 +9,10 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 import java.lang.reflect.*;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 public class EdgeConvertGUI {
-   
+   public Logger log = LogManager.getLogger(EdgeConvertGUI.class);
    public static final int HORIZ_SIZE = 635;
    public static final int VERT_SIZE = 400;
    public static final int HORIZ_LOC = 100;
@@ -79,6 +81,7 @@ public class EdgeConvertGUI {
    } // EdgeConvertGUI.EdgeConvertGUI()
    
    public void showGUI() {
+      log.info("Among us");
       try {
          UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); //use the OS native LAF, as opposed to default Java LAF
       } catch (Exception e) {
