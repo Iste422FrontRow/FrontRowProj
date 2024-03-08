@@ -1,6 +1,8 @@
 import java.io.*;
 import java.util.*;
 import javax.swing.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class EdgeConvertFileParser {
    //private String filename = "test.edg";
@@ -25,6 +27,8 @@ public class EdgeConvertFileParser {
    public static final String EDGE_ID = "EDGE Diagram File"; //first line of .edg files should be this
    public static final String SAVE_ID = "EdgeConvert Save File"; //first line of save files should be this
    public static final String DELIM = "|";
+   public static Logger log = LogManager.getLogger(EdgeConvertFileParser.class);
+
    
    public EdgeConvertFileParser(File constructorFile) {
       numFigure = 0;
@@ -40,13 +44,16 @@ public class EdgeConvertFileParser {
    }
 
    public void parseEdgeFile() throws IOException {
+      log.info("Parsing Edge Diagrammer file: {}", parseFile.getName());
       while ((currentLine = br.readLine()) != null) {
          currentLine = currentLine.trim();
          if (currentLine.startsWith("Figure ")) { //this is the start of a Figure entry
+            log.debug("Parsing Figure entry");
             numFigure = Integer.parseInt(currentLine.substring(currentLine.indexOf(" ") + 1)); //get the Figure number
             currentLine = br.readLine().trim(); // this should be "{"
             currentLine = br.readLine().trim();
             if (!currentLine.startsWith("Style")) { // this is to weed out other Figures, like Labels
+               log.warn("Unexpected figure found");
                continue;
             } else {
                style = currentLine.substring(currentLine.indexOf("\"") + 1, currentLine.lastIndexOf("\"")); //get the Style parameter
@@ -67,6 +74,7 @@ public class EdgeConvertFileParser {
                currentLine = br.readLine().trim(); //this should be Text
                text = currentLine.substring(currentLine.indexOf("\"") + 1, currentLine.lastIndexOf("\"")).replaceAll(" ", ""); //get the Text parameter
                if (text.equals("")) {
+                  log.error("Blank names provided in diagram");
                   JOptionPane.showMessageDialog(null, "There are entities or attributes with blank names in this diagram.\nPlease provide names for them and try again.");
                   EdgeConvertGUI.setReadSuccess(false);
                   break;
@@ -85,6 +93,7 @@ public class EdgeConvertFileParser {
                
                if (isEntity) { //create a new EdgeTable object and add it to the alTables ArrayList
                   if (isTableDup(text)) {
+                     log.error("There are multiple tables with this name");
                      JOptionPane.showMessageDialog(null, "There are multiple tables called " + text + " in this diagram.\nPlease rename all but one of them and try again.");
                      EdgeConvertGUI.setReadSuccess(false);
                      break;
@@ -283,6 +292,7 @@ public class EdgeConvertFileParser {
    
    public void openFile(File inputFile) {
       try {
+         log.info("Opening file: {}", inputFile.getName());
          fr = new FileReader(inputFile);
          br = new BufferedReader(fr);
          //test for what kind of file we have
@@ -304,10 +314,12 @@ public class EdgeConvertFileParser {
          }
       } // try
       catch (FileNotFoundException fnfe) {
+         log.error("Cannot find file: {}", inputFile.getName());
          System.out.println("Cannot find \"" + inputFile.getName() + "\".");
          System.exit(0);
       } // catch FileNotFoundException
       catch (IOException ioe) {
+         log.error("Error reading file: {}", ioe.getMessage());
          System.out.println(ioe);
          System.exit(0);
       } // catch IOException
