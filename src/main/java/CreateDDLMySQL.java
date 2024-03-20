@@ -2,10 +2,15 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;   
 import javax.swing.event.*;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.*;
 import java.util.*;
 
 public class CreateDDLMySQL extends EdgeConvertCreateDDL {
+   public static Logger log = LogManager.getLogger(RunEdgeConvert.class);
 
    protected String databaseName;
    //this array is for determining how MySQL refers to datatypes
@@ -26,6 +31,7 @@ public class CreateDDLMySQL extends EdgeConvertCreateDDL {
       databaseName = generateDatabaseName();
       sb.append("CREATE DATABASE " + databaseName + ";\r\n");
       sb.append("USE " + databaseName + ";\r\n");
+      log.debug("Attempting to create and use Datbase: ", databaseName);
       for (int boundCount = 0; boundCount <= maxBound; boundCount++) { //process tables in order from least dependent (least number of bound tables) to most dependent
          for (int tableCount = 0; tableCount < numBoundTables.length; tableCount++) { //step through list of tables
             if (numBoundTables[tableCount] == boundCount) { //
@@ -94,9 +100,11 @@ public class CreateDDLMySQL extends EdgeConvertCreateDDL {
                   }
                   sb.append("\r\n");
                }
+               log.debug("Attempting to add SQL:", sb);
                sb.append(");\r\n\r\n"); //end of table
             }
          }
+         log.debug("Final Sql srting: ", sb);
       }
    }
 
@@ -122,10 +130,12 @@ public class CreateDDLMySQL extends EdgeConvertCreateDDL {
                        null,
                        dbNameDefault);
          if (databaseName == null) {
+            log.warn("Warning: Name was null. Name must be included");
             EdgeConvertGUI.setReadSuccess(false);
             return "";
          }
          if (databaseName.equals("")) {
+            log.warn("Warning: Name must be included");
             JOptionPane.showMessageDialog(null, "You must select a name for your database.");
          }
       } while (databaseName.equals(""));
