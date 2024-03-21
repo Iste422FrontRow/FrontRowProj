@@ -73,7 +73,7 @@
       static JMenuItem jmiDROpenEdge, jmiDROpenSave, jmiDRSave, jmiDRSaveAs, jmiDRExit, jmiDROptionsOutputLocation, jmiDROptionsShowProducts, jmiDRHelpAbout;
       
       public EdgeConvertGUI() {
-          log.info("Constructor");
+
          menuListener = new EdgeMenuListener();
          radioListener = new EdgeRadioButtonListener();
          edgeWindowListener = new EdgeWindowListener();
@@ -82,15 +82,15 @@
       } // EdgeConvertGUI.EdgeConvertGUI()
       
       public void showGUI() {
-         log.info("Among us");
+         log.info("Application GUI building");
          try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); //use the OS native LAF, as opposed to default Java LAF
          } catch (Exception e) {
-             log.error(e);
-            System.out.println("Error setting native LAF: " + e);
+             log.error("Error setting native LAF: " + e);
          }
          createDTScreen();
          createDRScreen();
+         log.info("Application fully up");
       } //showGUI()
    
       public void createDTScreen() {//create Define Tables screen
@@ -930,13 +930,15 @@
                //close the file
                pw.close();
             } catch (IOException ioe) {
-               System.out.println(ioe);
+                log.warn(ioe);
+
             }
             dataSaved = true;
          }
       }
    
       private void setOutputDir() {
+
          int returnVal;
          outputDirOld = outputDir;
          alSubclasses = new ArrayList();
@@ -955,6 +957,7 @@
          getOutputClasses();
    
          if (alProductNames.size() == 0) {
+             log.info("Incorrect tried to set Output file: " + outputDir);
             JOptionPane.showMessageDialog(null, "The path:\n" + outputDir + "\ncontains no valid output definition files.");
             outputDir = outputDirOld;
             return;
@@ -964,7 +967,7 @@
             jbDTCreateDDL.setEnabled(true);
             jbDRCreateDDL.setEnabled(true);
          }
-   
+         log.info("Correctly added Output file path: " + displayProductNames());
          JOptionPane.showMessageDialog(null, "The available products to create DDL statements are:\n" + displayProductNames());
          jmiDTOptionsShowProducts.setEnabled(true);
          jmiDROptionsShowProducts.setEnabled(true);
@@ -990,7 +993,7 @@
          String classLocation = EdgeConvertGUI.class.getResource("EdgeConvertGUI.class").toString();
          if (classLocation.startsWith("jar:")) {
              String jarfilename = classLocation.replaceFirst("^.*:", "").replaceFirst("!.*$", "");
-             System.out.println("Jarfile: " + jarfilename);
+             log.debug("Jarfile: " + jarfilename);
              try (JarFile jarfile = new JarFile(jarfilename)) {
                  ArrayList<File> filenames = new ArrayList<>();
                  for (JarEntry e : Collections.list(jarfile.entries())) {
@@ -1009,7 +1012,7 @@
          alSubclasses.clear();
          try {
             for (int i = 0; i < resultFiles.length; i++) {
-            System.out.println(resultFiles[i].getName());
+                log.info("File Name: "+resultFiles[i].getName());
                if (!resultFiles[i].getName().endsWith(".class")) {
                   continue; //ignore all files that are not .class files
                }
@@ -1113,7 +1116,8 @@
                //close the file
                pw.close();
             } catch (IOException ioe) {
-               System.out.println(ioe);
+                log.warn(ioe);
+
             }
          }
       }
@@ -1171,6 +1175,7 @@
                   return;
                }
             }
+            log.info("Application Stopped: Window Closed");
             System.exit(0); //No was selected
          }
       }
@@ -1178,7 +1183,7 @@
       class CreateDDLButtonListener implements ActionListener {
          public void actionPerformed(ActionEvent ae) {
             while (outputDir == null) {
-
+                log.info("Output dir not yet specified");
                JOptionPane.showMessageDialog(null, "You have not selected a path that contains valid output definition files yet.\nPlease select a path now.");
                setOutputDir();
             }
@@ -1297,7 +1302,8 @@
                      return;
                   }
                }
-               System.exit(0); //No was selected
+                log.info("Application Stopped: Window Closed");
+                System.exit(0); //No was selected
             }
             
             if ((ae.getSource() == jmiDTOptionsOutputLocation) || (ae.getSource() == jmiDROptionsOutputLocation)) {
