@@ -701,11 +701,12 @@
          jbDRBindRelation.addActionListener(
             new ActionListener() {
                public void actionPerformed(ActionEvent ae) {
-                   log.info("Unbind/Bind relations in related table");
+
                   int nativeIndex = jlDRFieldsTablesRelations.getSelectedIndex();
 
                   int relatedField = currentDRField2.getNumFigure();
                   if (currentDRField1.getFieldBound() == relatedField) { //the selected fields are already bound to each other
+                      log.info("Unbind relations in related table");
                      int answer = JOptionPane.showConfirmDialog(null, "Do you wish to unbind the relation on field " +
                                                                 currentDRField1.getName() + "?",
                                                                 "Are you sure?", JOptionPane.YES_NO_OPTION);
@@ -718,7 +719,9 @@
                      return;
                   }
                   if (currentDRField1.getFieldBound() != 0) { //field is already bound to a different field
-                     int answer = JOptionPane.showConfirmDialog(null, "There is already a relation defined on field " +
+                      log.info("Binding filed that is bound to a new table");
+
+                      int answer = JOptionPane.showConfirmDialog(null, "There is already a relation defined on field " +
                                                                 currentDRField1.getName() + ", do you wish to overwrite it?",
                                                                 "Are you sure?", JOptionPane.YES_NO_OPTION);
                      if (answer == JOptionPane.NO_OPTION || answer == JOptionPane.CLOSED_OPTION) {
@@ -728,12 +731,14 @@
                      }
                   }
                   if (currentDRField1.getDataType() != currentDRField2.getDataType()) {
+                      log.debug("Table can not be bound together");
                      JOptionPane.showMessageDialog(null, "The datatypes of " + currentDRTable1.getName() + "." +
                                                    currentDRField1.getName() + " and " + currentDRTable2.getName() +
                                                    "." + currentDRField2.getName() + " do not match.  Unable to bind this relation.");
                      return;
                   }
                   if ((currentDRField1.getDataType() == 0) && (currentDRField2.getDataType() == 0)) {
+                      log.debug("Table can not be bound together: Var chars of different length");
                      if (currentDRField1.getVarcharValue() != currentDRField2.getVarcharValue()) {
                         JOptionPane.showMessageDialog(null, "The varchar lengths of " + currentDRTable1.getName() + "." +
                                                       currentDRField1.getName() + " and " + currentDRTable2.getName() +
@@ -744,6 +749,7 @@
                   currentDRTable1.setRelatedField(nativeIndex, relatedField);
                   currentDRField1.setTableBound(currentDRTable2.getNumFigure());
                   currentDRField1.setFieldBound(currentDRField2.getNumFigure());
+                  log.info("Successfully bound together: " +currentDRTable1.getName() +" and " + currentDRTable2.getName());
                   JOptionPane.showMessageDialog(null, "Table " + currentDRTable1.getName() + ": native field " +
                                                 currentDRField1.getName() + " bound to table " + currentDRTable2.getName() +
                                                 " on field " + currentDRField2.getName());
@@ -878,6 +884,7 @@
       }
       
       private void depopulateLists() {
+          log.debug("Depopulating backend data for GUI");
          dlmDTTablesAll.clear();
          dlmDTFieldsTablesAll.clear();
          dlmDRTablesRelations.clear();
@@ -887,6 +894,7 @@
       }
       
       private void populateLists() {
+          log.debug("Populating backend data for GUI");
          if (readSuccess) {
             jfDT.setVisible(true);
             jfDR.setVisible(false);
@@ -905,12 +913,14 @@
       }
       
       private void saveAs() {
+          log.info("Saving current info in GUI to a save file");
          int returnVal;
          jfcEdge.addChoosableFileFilter(effSave);
          returnVal = jfcEdge.showSaveDialog(null);
          if (returnVal == JFileChooser.APPROVE_OPTION) {
             saveFile = jfcEdge.getSelectedFile();
             if (saveFile.exists ()) {
+                log.info("Overwriting current save file");
                 int response = JOptionPane.showConfirmDialog(null, "Overwrite existing file?", "Confirm Overwrite",
                    JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
                 if (response == JOptionPane.CANCEL_OPTION) {
@@ -932,6 +942,7 @@
       }
       
       private void writeSave() {
+          log.debug("Writing to save file");
          if (saveFile != null) {
             try {
                pw = new PrintWriter(new BufferedWriter(new FileWriter(saveFile, false)));
@@ -1002,6 +1013,7 @@
       }
       
       private void getOutputClasses() {
+          log.debug("Finding the correct output classes for the output");
          File[] resultFiles = {};
          Class resultClass = null;
          Class[] paramTypes = {EdgeTable[].class, EdgeField[].class};
@@ -1053,14 +1065,22 @@
             }
          } catch (InstantiationException ie) {
             ie.printStackTrace();
+            log.warn(ie.getMessage());
          } catch (ClassNotFoundException cnfe) {
             cnfe.printStackTrace();
+             log.warn(cnfe.getMessage());
          } catch (IllegalAccessException iae) {
             iae.printStackTrace();
+             log.warn(iae.getMessage());
+
          } catch (NoSuchMethodException nsme) {
-            nsme.printStackTrace();
+             log.warn(nsme.getMessage());
+
+             nsme.printStackTrace();
          } catch (InvocationTargetException ite) {
-            ite.printStackTrace();
+             log.warn(ite.getMessage());
+
+             ite.printStackTrace();
          }
          if (alProductNames.size() > 0 && alSubclasses.size() > 0) { //do not recreate productName and objSubClasses arrays if the new path is empty of valid files
             productNames = (String[])alProductNames.toArray(new String[alProductNames.size()]);
@@ -1069,6 +1089,7 @@
       }
       
       private String getSQLStatements() {
+          log.debug("Getting the SQL Statments ready");
          String strSQLString = "";
          String response = (String)JOptionPane.showInputDialog(
                        null,
@@ -1091,23 +1112,31 @@
          }
    
          try {
+
             Class selectedSubclass = objSubclasses[selected].getClass();
             Method getSQLString = selectedSubclass.getMethod("getSQLString", null);
             Method getDatabaseName = selectedSubclass.getMethod("getDatabaseName", null);
             strSQLString = (String)getSQLString.invoke(objSubclasses[selected], null);
             databaseName = (String)getDatabaseName.invoke(objSubclasses[selected], null);
          } catch (IllegalAccessException iae) {
-            iae.printStackTrace();
+             log.warn(iae.getMessage());
+
+             iae.printStackTrace();
          } catch (NoSuchMethodException nsme) {
-            nsme.printStackTrace();
+             log.warn(nsme.getMessage());
+
+             nsme.printStackTrace();
          } catch (InvocationTargetException ite) {
-            ite.printStackTrace();
+             log.warn(ite.getMessage());
+
+             ite.printStackTrace();
          }
    
          return strSQLString;
       }
    
       private void writeSQL(String output) {
+          log.info("Writing out the SQL file");
          jfcEdge.resetChoosableFileFilters();
          String str;
          if (parseFile != null) {
@@ -1139,6 +1168,7 @@
                 log.warn(ioe);
 
             }
+            log.info("SQL File written out");
          }
       }
       
@@ -1335,6 +1365,7 @@
             }
    
             if ((ae.getSource() == jmiDTOptionsShowProducts) || (ae.getSource() == jmiDROptionsShowProducts)) {
+                log.info("Product available: " + displayProductNames());
                JOptionPane.showMessageDialog(null, "The available products to create DDL statements are:\n" + displayProductNames());
             }
             
