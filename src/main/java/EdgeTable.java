@@ -113,6 +113,7 @@ public class EdgeTable {
 
    public String toString() {
       log.info(name + " calls toString()");
+      log.info("Creating a save file");
 
       StringBuffer sb = new StringBuffer();
       sb.append("Table: " + numFigure + "\r\n");

@@ -94,6 +94,7 @@
       } //showGUI()
    
       public void createDTScreen() {//create Define Tables screen
+          log.debug("Creating Define Tables Screen");
          jfDT = new JFrame(DEFINE_TABLES);
          jfDT.setLocation(HORIZ_LOC, VERT_LOC);
          Container cp = jfDT.getContentPane();
@@ -171,6 +172,7 @@
          jbDTDefineRelations.addActionListener(
             new ActionListener() {
                public void actionPerformed(ActionEvent ae) {
+                   log.info("Switch to the relations tables");
                   jfDT.setVisible(false);
                   jfDR.setVisible(true); //show the Define Relations screen
                   clearDTControls();
@@ -216,7 +218,7 @@
          jlDTFieldsTablesAll.addListSelectionListener(
             new ListSelectionListener() {
                public void valueChanged(ListSelectionEvent lse) {
-                   log.info("Value changed");
+                   log.info("Selecting value in table");
                   int selIndex = jlDTFieldsTablesAll.getSelectedIndex();
                   if (selIndex >= 0) {
                      if (selIndex == 0) {
@@ -254,6 +256,7 @@
          jbDTMoveUp.addActionListener(
             new ActionListener() {
                public void actionPerformed(ActionEvent ae) {
+                   log.info("Moving up the table item");
                   int selection = jlDTFieldsTablesAll.getSelectedIndex();
                   currentDTTable.moveFieldUp(selection);
                   //repopulate Fields List
@@ -273,6 +276,7 @@
          jbDTMoveDown.addActionListener(
             new ActionListener() {
                public void actionPerformed(ActionEvent ae) {
+                   log.info("Moving the table item down");
                   int selection = jlDTFieldsTablesAll.getSelectedIndex(); //the original selected index
                   currentDTTable.moveFieldDown(selection);
                   //repopulate Fields List
@@ -334,6 +338,7 @@
          jcheckDTPrimaryKey.addItemListener(
             new ItemListener() {
                public void itemStateChanged(ItemEvent ie) {
+                   log.info("Changing primary key");
                   currentDTField.setIsPrimaryKey(jcheckDTPrimaryKey.isSelected());
                   dataSaved = false;
                }
@@ -345,6 +350,7 @@
          jbDTDefaultValue.addActionListener(
             new ActionListener() {
                public void actionPerformed(ActionEvent ae) {
+                   log.info("Setting the value for column");
                   String prev = jtfDTDefaultValue.getText();
                   boolean goodData = false;
                   int i = currentDTField.getDataType();
@@ -369,6 +375,7 @@
                               goodData = true;
                            } else {
                               JOptionPane.showMessageDialog(null, "The length of this value must be less than or equal to the Varchar length specified.");
+                              log.debug("Wrong value for varchar");
                            }
                            break;
                         case 1: //boolean
@@ -378,6 +385,8 @@
                               goodData = true;
                            } else {
                               JOptionPane.showMessageDialog(null, "You must input a valid boolean value (\"true\" or \"false\").");
+                               log.debug("Wrong value for varchar");
+
                            }
                            break;
                         case 2: //Integer
@@ -388,6 +397,8 @@
                            } catch (NumberFormatException nfe) {
                                log.error("not an integer or is outside the bounds of valid integer values.");
                               JOptionPane.showMessageDialog(null, "\"" + result + "\" is not an integer or is outside the bounds of valid integer values.");
+                               log.debug("Wrong value for integer");
+
                            }
                            break;
                         case 3: //Double
@@ -398,6 +409,7 @@
                            } catch (NumberFormatException nfe) {
                                log.error("not a double or is outside the bounds", nfe);
                               JOptionPane.showMessageDialog(null, "\"" + result + "\" is not a double or is outside the bounds of valid double values.");
+                               log.debug("Wrong value for double");
                            }
                            break;
                         case 4: //Timestamp
@@ -406,7 +418,7 @@
                               goodData = true;
                            }
                            catch (Exception e) {
-                              
+                              log.warn(e);
                            }
                            break;
                      }
@@ -448,6 +460,7 @@
                   try {
                      if (result.length() > 5) {
                         JOptionPane.showMessageDialog(null, "Varchar length must be greater than 0 and less than or equal to 65535.");
+                         log.debug("Wrong value for varchar");
                         jtfDTVarchar.setText(Integer.toString(EdgeField.VARCHAR_DEFAULT_LENGTH));
                         return;
                      }
@@ -457,6 +470,7 @@
                         currentDTField.setVarcharValue(varchar);
                      } else {
                         JOptionPane.showMessageDialog(null, "Varchar length must be greater than 0 and less than or equal to 65535.");
+                         log.debug("Wrong value for varchar");
                         jtfDTVarchar.setText(Integer.toString(EdgeField.VARCHAR_DEFAULT_LENGTH));
                         return;
                      }
@@ -488,6 +502,7 @@
       } //createDTScreen
    
       public void createDRScreen() {
+          log.debug("Creating the Define Relations screen");
          //create Define Relations screen
          jfDR = new JFrame(DEFINE_RELATIONS);
          jfDR.setSize(HORIZ_SIZE, VERT_SIZE);
@@ -557,6 +572,7 @@
          jlDRTablesRelations.addListSelectionListener(
             new ListSelectionListener() {
                public void valueChanged(ListSelectionEvent lse)  {
+                   log.info("Showing all the relations for a table");
                   int selIndex = jlDRTablesRelations.getSelectedIndex();
                   if (selIndex >= 0) {
                      String selText = dlmDRTablesRelations.getElementAt(selIndex).toString();
@@ -588,6 +604,7 @@
          jlDRFieldsTablesRelations.addListSelectionListener(
             new ListSelectionListener() {
                public void valueChanged(ListSelectionEvent lse)  {
+                   log.info("Showing how field tables relations");
                   int selIndex = jlDRFieldsTablesRelations.getSelectedIndex();
                   if (selIndex >= 0) {
                      String selText = dlmDRFieldsTablesRelations.getElementAt(selIndex).toString();
@@ -610,6 +627,7 @@
          jlDRTablesRelatedTo.addListSelectionListener(
             new ListSelectionListener() {
                public void valueChanged(ListSelectionEvent lse)  {
+                   log.info("Showing what values are in related table");
                   int selIndex = jlDRTablesRelatedTo.getSelectedIndex();
                   if (selIndex >= 0) {
                      String selText = dlmDRTablesRelatedTo.getElementAt(selIndex).toString();
@@ -629,6 +647,7 @@
          jlDRFieldsTablesRelatedTo.addListSelectionListener(
             new ListSelectionListener() {
                public void valueChanged(ListSelectionEvent lse)  {
+                   log.info("Setting related filed element to be unbound");
                   int selIndex = jlDRFieldsTablesRelatedTo.getSelectedIndex();
                   if (selIndex >= 0) {
                      String selText = dlmDRFieldsTablesRelatedTo.getElementAt(selIndex).toString();
@@ -682,6 +701,7 @@
          jbDRBindRelation.addActionListener(
             new ActionListener() {
                public void actionPerformed(ActionEvent ae) {
+                   log.info("Unbind/Bind relations in related table");
                   int nativeIndex = jlDRFieldsTablesRelations.getSelectedIndex();
 
                   int relatedField = currentDRField2.getNumFigure();
@@ -1212,6 +1232,7 @@
                jfcEdge.addChoosableFileFilter(effEdge);
                returnVal = jfcEdge.showOpenDialog(null);
                if (returnVal == JFileChooser.APPROVE_OPTION) {
+                   log.info("Loading an edge file");
                   parseFile = jfcEdge.getSelectedFile();
                   ecfp = new EdgeConvertFileParser(parseFile);
                   tables = ecfp.getEdgeTables();
@@ -1248,6 +1269,7 @@
                      return;
                   }
                }
+               log.info("Opening save file");
                jfcEdge.addChoosableFileFilter(effSave);
                returnVal = jfcEdge.showOpenDialog(null);
                if (returnVal == JFileChooser.APPROVE_OPTION) {
@@ -1278,6 +1300,7 @@
             
             if ((ae.getSource() == jmiDTSaveAs) || (ae.getSource() == jmiDRSaveAs) ||
                 (ae.getSource() == jmiDTSave) || (ae.getSource() == jmiDRSave)) {
+                log.info("Saving current work into a file");
                if ((ae.getSource() == jmiDTSaveAs) || (ae.getSource() == jmiDRSaveAs)) {
                   saveAs();
                } else {
@@ -1307,6 +1330,7 @@
             }
             
             if ((ae.getSource() == jmiDTOptionsOutputLocation) || (ae.getSource() == jmiDROptionsOutputLocation)) {
+                log.info("Set output dir for the DDL");
                setOutputDir();
             }
    
