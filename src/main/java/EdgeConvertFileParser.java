@@ -138,6 +138,7 @@ public class EdgeConvertFileParser {
    } // parseEdgeFile()
    
    private void resolveConnectors() { //Identify nature of Connector endpoints
+      log.debug("Resolving connector endpoint");
       int endPoint1, endPoint2;
       int fieldIndex = 0, table1Index = 0, table2Index = 0;
       for (int cIndex = 0; cIndex < connectors.length; cIndex++) {
@@ -167,6 +168,7 @@ public class EdgeConvertFileParser {
          
          if (connectors[cIndex].getIsEP1Field() && connectors[cIndex].getIsEP2Field()) { //both endpoints are fields, implies lack of normalization
             JOptionPane.showMessageDialog(null, "The Edge Diagrammer file\n" + parseFile + "\ncontains composite attributes. Please resolve them and try again.");
+            log.warn("Edge Diagram file had issues");
             EdgeConvertGUI.setReadSuccess(false); //this tells GUI not to populate JList components
             break; //stop processing list of Connectors
          }
@@ -175,6 +177,7 @@ public class EdgeConvertFileParser {
             if ((connectors[cIndex].getEndStyle1().indexOf("many") >= 0) &&
                 (connectors[cIndex].getEndStyle2().indexOf("many") >= 0)) { //the connector represents a many-many relationship, implies lack of normalization
                JOptionPane.showMessageDialog(null, "There is a many-many relationship between tables\n\"" + tables[table1Index].getName() + "\" and \"" + tables[table2Index].getName() + "\"" + "\nPlease resolve this and try again.");
+               log.warn("Edge Diagram file had a m-n relationship");
                EdgeConvertGUI.setReadSuccess(false); //this tells GUI not to populate JList components
                break; //stop processing list of Connectors
             } else { //add Figure number to each table's list of related tables
@@ -183,7 +186,7 @@ public class EdgeConvertFileParser {
                continue; //next Connector
             }
          }
-         
+         log.debug("Making sure each field has been connected to table");
          if (fieldIndex >=0 && fields[fieldIndex].getTableID() == 0) { //field has not been assigned to a table yet
             if (connectors[cIndex].getIsEP1Table()) { //endpoint1 is the table
                tables[table1Index].addNativeField(fields[fieldIndex].getNumFigure()); //add to the appropriate table's field list
@@ -194,6 +197,7 @@ public class EdgeConvertFileParser {
             }
          } else if (fieldIndex >=0) { //field has already been assigned to a table
             JOptionPane.showMessageDialog(null, "The attribute " + fields[fieldIndex].getName() + " is connected to multiple tables.\nPlease resolve this and try again.");
+            log.warn("Atr has been assigned to to many tables");
             EdgeConvertGUI.setReadSuccess(false); //this tells GUI not to populate JList components
             break; //stop processing list of Connectors
          }
@@ -201,6 +205,7 @@ public class EdgeConvertFileParser {
    } // resolveConnectors()
    
    public void parseSaveFile() throws IOException { //this method is unclear and confusing in places
+      log.debug("Changing save file and parsing it");
       StringTokenizer stTables, stNatFields, stRelFields, stNatRelFields, stField;
       EdgeTable tempTable;
       EdgeField tempField;
@@ -261,6 +266,7 @@ public class EdgeConvertFileParser {
    } // parseSaveFile()
 
    private void makeArrays() { //convert ArrayList objects into arrays of the appropriate Class type
+      log.debug("Converting ArrayList into arrays");
       if (alTables != null) {
          tables = (EdgeTable[])alTables.toArray(new EdgeTable[alTables.size()]);
       }
@@ -273,6 +279,7 @@ public class EdgeConvertFileParser {
    }
    
    private boolean isTableDup(String testTableName) {
+      log.debug("making sure table "+ testTableName+ " is not a dup");
       for (int i = 0; i < alTables.size(); i++) {
          EdgeTable tempTable = (EdgeTable)alTables.get(i);
          if (tempTable.getName().equals(testTableName)) {
@@ -283,10 +290,13 @@ public class EdgeConvertFileParser {
    }
    
    public EdgeTable[] getEdgeTables() {
+      log.debug("getting edge tables");
       return tables;
    }
    
    public EdgeField[] getEdgeFields() {
+
+      log.debug("getting the edge fields");
       return fields;
    }
    
@@ -310,6 +320,7 @@ public class EdgeConvertFileParser {
                this.makeArrays(); //convert ArrayList objects into arrays of the appropriate Class type
             } else { //the file chosen is something else
                JOptionPane.showMessageDialog(null, "Unrecognized file format");
+               log.warn("Unrecognized file format");
             }
          }
       } // try

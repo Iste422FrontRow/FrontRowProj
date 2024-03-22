@@ -18,6 +18,7 @@ public abstract class EdgeConvertCreateDDL {
    public static Logger log = LogManager.getLogger(EdgeConvertCreateDDL.class);
    
    public EdgeConvertCreateDDL(EdgeTable[] tables, EdgeField[] fields) {
+      log.debug("Creating EdgeConvertCreateDDL obj in constructor");
       this.tables = tables;
       this.fields = fields;
       initialize();
@@ -45,10 +46,11 @@ public abstract class EdgeConvertCreateDDL {
             maxBound = numBound;
          }
       }
-      log.info("EdgeConvertCreateDDL initialization complete");
+      log.debug("EdgeConvertCreateDDL initialization complete");
    }
    
    protected EdgeTable getTable(int numFigure) {
+      log.debug("Getting EdgeTable");
       for (int tIndex = 0; tIndex < tables.length; tIndex++) {
          if (numFigure == tables[tIndex].getNumFigure()) {
             return tables[tIndex];
@@ -58,6 +60,7 @@ public abstract class EdgeConvertCreateDDL {
    }
    
    protected EdgeField getField(int numFigure) {
+      log.debug("Getting EdgeField");
       for (int fIndex = 0; fIndex < fields.length; fIndex++) {
          if (numFigure == fields[fIndex].getNumFigure()) {
             return fields[fIndex];

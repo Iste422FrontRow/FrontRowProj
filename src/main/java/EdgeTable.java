@@ -14,16 +14,19 @@ public class EdgeTable {
       StringTokenizer st = new StringTokenizer(inputString, EdgeConvertFileParser.DELIM);
       numFigure = Integer.parseInt(st.nextToken());
       name = st.nextToken();
-      log.info("Creating row in edge table based on .edg file Name:" + name);
+      log.debug("Creating row in edge table based on .edg file Name:" + name);
       alRelatedTables = new ArrayList();
       alNativeFields = new ArrayList();
    }
    
    public int getNumFigure() {
+      log.debug("getNumFigure called: " + numFigure);
       return numFigure;
    }
    
    public String getName() {
+
+      log.debug("getName called: " + name);
       return name;
    }
    

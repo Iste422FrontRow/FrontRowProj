@@ -109,6 +109,7 @@ public class CreateDDLMySQL extends EdgeConvertCreateDDL {
    }
 
    protected int convertStrBooleanToInt(String input) { //MySQL uses '1' and '0' for boolean types
+      log.debug("Converting " + input + "into int");
       if (input.equals("true")) {
          return 1;
       } else {
@@ -119,7 +120,7 @@ public class CreateDDLMySQL extends EdgeConvertCreateDDL {
    public String generateDatabaseName() { //prompts user for database name
       String dbNameDefault = "MySQLDB";
       //String databaseName = "";
-
+      log.debug("Creating database name");
       do {
          databaseName = (String)JOptionPane.showInputDialog(
                        null,
@@ -143,14 +144,17 @@ public class CreateDDLMySQL extends EdgeConvertCreateDDL {
    }
    
    public String getDatabaseName() {
+      log.debug("getting debase name: " + databaseName);
       return databaseName;
    }
    
    public String getProductName() {
+      log.debug("Getting product name");
       return "MySQL";
    }
 
    public String getSQLString() {
+      log.debug("Making the SQL statement");
       createDDL();
       return sb.toString();
    }
