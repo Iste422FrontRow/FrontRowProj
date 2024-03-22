@@ -1044,7 +1044,7 @@
          alSubclasses.clear();
          try {
             for (int i = 0; i < resultFiles.length; i++) {
-                log.info("File Name: "+resultFiles[i].getName());
+                log.debug("File Name: "+resultFiles[i].getName());
                if (!resultFiles[i].getName().endsWith(".class")) {
                   continue; //ignore all files that are not .class files
                }

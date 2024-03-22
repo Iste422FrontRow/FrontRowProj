@@ -90,7 +90,7 @@ public class EdgeTable {
    }
 
    public void makeArrays() { //convert the ArrayLists into int[]
-      log.info(name + ": Converting arraylists into an arrays");
+      log.debug(name + ": Converting arraylists into an arrays");
       Integer[] temp;
       temp = (Integer[])alNativeFields.toArray(new Integer[alNativeFields.size()]);
       nativeFields = new int[temp.length];
