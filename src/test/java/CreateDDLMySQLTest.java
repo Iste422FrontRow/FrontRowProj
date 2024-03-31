@@ -3,11 +3,7 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import javax.swing.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import java.awt.*;
-import java.awt.event.KeyEvent;
 import java.io.File;
 
 public class CreateDDLMySQLTest extends CreateDDLMySQL{
@@ -17,8 +13,12 @@ public class CreateDDLMySQLTest extends CreateDDLMySQL{
         globalTestObj = new CreateDDLMySQL(new EdgeTable[0],new EdgeField[0]);
     }
     @After
-    @Before
     public void resetGlobalTestObjUp(){
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         globalTestObj = new CreateDDLMySQL(new EdgeTable[0],new EdgeField[0]);
     }
 
@@ -203,6 +203,7 @@ public class CreateDDLMySQLTest extends CreateDDLMySQL{
     @Test
     public void testGenerateDatabaseNameCancel() {
         //exit out of genertate database name promt,
+        //number 3 ran during tests
         String dbName = globalTestObj.generateDatabaseName();
         assertNull("Database is null", dbName);
     }
@@ -210,6 +211,7 @@ public class CreateDDLMySQLTest extends CreateDDLMySQL{
     @Test
     public void testCreateDDLWithNullDatabaseName(){
         //exit out of window when prompted
+        //number 2 ran during test for some reason
         globalTestObj.createDDL();
 
         String testString = "CREATE DATABASE ;\n" + "USE ;";

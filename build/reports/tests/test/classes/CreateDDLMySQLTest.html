@@ -29,7 +29,7 @@
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">4</div>
+<div class="counter">1</div>
 <p>failures</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">7.127s</div>
+<div class="counter">20.162s</div>
 <p>duration</p>
 </div>
 </td>
@@ -51,7 +51,7 @@
 </td>
 <td>
 <div class="infoBox failures" id="successRate">
-<div class="percent">71%</div>
+<div class="percent">92%</div>
 <p>successful</p>
 </div>
 </td>
@@ -73,116 +73,18 @@
 <div id="tab0" class="tab">
 <h2>Failed tests</h2>
 <div class="test">
-<a name="testCreateDDLWithNoInfo"></a>
-<h3 class="failures">testCreateDDLWithNoInfo</h3>
-<span class="code">
-<pre>org.junit.ComparisonFailure: Should only createDatabase expected:&lt;CREATE DATABASE [MySQLDB;
-USE MySQLDB];&gt; but was:&lt;CREATE DATABASE [;
-USE ];&gt;
-	at org.junit.Assert.assertEquals(Assert.java:115)
-	at CreateDDLMySQLTest.testCreateDDLWithNoInfo(CreateDDLMySQLTest.java:129)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
-	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(JUnitTestClassExecutor.java:112)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:58)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:40)
-	at org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(AbstractJUnitTestClassProcessor.java:60)
-	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:52)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
-	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
-	at jdk.proxy1/jdk.proxy1.$Proxy2.processTestClass(Unknown Source)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker$2.run(TestWorker.java:176)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
-	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
-	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:113)
-	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:65)
-	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
-	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
-</pre>
-</span>
-</div>
-<div class="test">
-<a name="testCreateDDLWithNullDatabaseName"></a>
-<h3 class="failures">testCreateDDLWithNullDatabaseName</h3>
-<span class="code">
-<pre>org.junit.ComparisonFailure: Their should be no database name given expected:&lt;CREATE DATABASE [;
-USE ];&gt; but was:&lt;CREATE DATABASE [MySQLDB;
-USE MySQLDB];&gt;
-	at org.junit.Assert.assertEquals(Assert.java:115)
-	at CreateDDLMySQLTest.testCreateDDLWithNullDatabaseName(CreateDDLMySQLTest.java:218)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
-	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(JUnitTestClassExecutor.java:112)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:58)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:40)
-	at org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(AbstractJUnitTestClassProcessor.java:60)
-	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:52)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
-	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
-	at jdk.proxy1/jdk.proxy1.$Proxy2.processTestClass(Unknown Source)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker$2.run(TestWorker.java:176)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
-	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
-	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:113)
-	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:65)
-	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
-	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
-</pre>
-</span>
-</div>
-<div class="test">
 <a name="testGenerateDatabaseNameCancel"></a>
 <h3 class="failures">testGenerateDatabaseNameCancel</h3>
 <span class="code">
-<pre>java.lang.AssertionError: Database is null expected null, but was:&lt;MySQLDB&gt;
+<pre>java.lang.AssertionError: Database is null expected null, but was:&lt;&gt;
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotNull(Assert.java:755)
 	at org.junit.Assert.assertNull(Assert.java:737)
-	at CreateDDLMySQLTest.testGenerateDatabaseNameCancel(CreateDDLMySQLTest.java:207)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at CreateDDLMySQLTest.testGenerateDatabaseNameCancel(CreateDDLMySQLTest.java:208)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
@@ -198,65 +100,15 @@ USE MySQLDB];&gt;
 	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
 	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
 	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(JUnitTestClassExecutor.java:112)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(JUnitTestClassExecutor.java:108)
 	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:58)
 	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:40)
 	at org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(AbstractJUnitTestClassProcessor.java:60)
 	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:52)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
-	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
-	at jdk.proxy1/jdk.proxy1.$Proxy2.processTestClass(Unknown Source)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker$2.run(TestWorker.java:176)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
-	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
-	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:113)
-	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:65)
-	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
-	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
-</pre>
-</span>
-</div>
-<div class="test">
-<a name="testGetSQLStringExpectedSQLString"></a>
-<h3 class="failures">testGetSQLStringExpectedSQLString</h3>
-<span class="code">
-<pre>org.junit.ComparisonFailure: Sql string should be the same generated expected:&lt;CREATE DATABASE [MySQLDB;
-USE MySQLDB];
-CREATE TABLE STUDE...&gt; but was:&lt;CREATE DATABASE [;
-USE ];
-CREATE TABLE STUDE...&gt;
-	at org.junit.Assert.assertEquals(Assert.java:115)
-	at CreateDDLMySQLTest.testGetSQLStringExpectedSQLString(CreateDDLMySQLTest.java:172)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
-	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(JUnitTestClassExecutor.java:112)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:58)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:40)
-	at org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(AbstractJUnitTestClassProcessor.java:60)
-	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:52)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
 	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
 	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
@@ -287,127 +139,127 @@ CREATE TABLE STUDE...&gt;
 </thead>
 <tr>
 <td class="success">testConstructorWithCorrectInfo</td>
-<td class="success">0.019s</td>
+<td class="success">1.025s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testConstructorWithEmptyValues</td>
-<td class="success">0.001s</td>
+<td class="success">1.004s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testConstructorWithNullValues</td>
-<td class="success">0.001s</td>
+<td class="success">1.000s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testConvertStrBooleanToIntFalse</td>
-<td class="success">0.001s</td>
+<td class="success">1.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testConvertStrBooleanToIntOtherInput</td>
-<td class="success">0s</td>
+<td class="success">1.004s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testConvertStrBooleanToIntTrue</td>
-<td class="success">0.001s</td>
+<td class="success">1.005s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testCreateDDLWithConnections</td>
-<td class="success">0.970s</td>
+<td class="success">1.446s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testCreateDDLWithCorruptedInfo</td>
-<td class="success">0.438s</td>
+<td class="success">1.364s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="failures">testCreateDDLWithNoInfo</td>
-<td class="failures">0.531s</td>
-<td class="failures">failed</td>
+<td class="success">testCreateDDLWithNoInfo</td>
+<td class="success">1.410s</td>
+<td class="success">passed</td>
 </tr>
 <tr>
-<td class="failures">testCreateDDLWithNullDatabaseName</td>
-<td class="failures">0.495s</td>
-<td class="failures">failed</td>
+<td class="success">testCreateDDLWithNullDatabaseName</td>
+<td class="success">1.803s</td>
+<td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testCreateDDLWithSQLInjection</td>
-<td class="success">2.315s</td>
+<td class="success">3.392s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testGenerateDatabaseName</td>
-<td class="success">0.566s</td>
+<td class="success">1.731s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="failures">testGenerateDatabaseNameCancel</td>
-<td class="failures">0.560s</td>
+<td class="failures">1.591s</td>
 <td class="failures">failed</td>
 </tr>
 <tr>
-<td class="failures">testGetSQLStringExpectedSQLString</td>
-<td class="failures">1.229s</td>
-<td class="failures">failed</td>
+<td class="success">testGetSQLStringExpectedSQLString</td>
+<td class="success">1.386s</td>
+<td class="success">passed</td>
 </tr>
 </table>
 </div>
 <div id="tab2" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>14:34.431 INFO class:EdgeConvertFileParser - Opening file: Courses8.edg.sav
-14:34.445 INFO class:EdgeField - Edge Field created
-14:34.447 INFO class:EdgeField - Edge Field created
-14:34.448 INFO class:EdgeField - Edge Field created
-14:34.448 INFO class:EdgeField - Edge Field created
-14:34.449 INFO class:EdgeField - Edge Field created
-14:34.450 INFO class:EdgeField - Edge Field created
-14:34.451 INFO class:EdgeField - Edge Field created
-14:36.736 INFO class:EdgeConvertFileParser - Opening file: Courses2.edg.sav
-14:36.741 INFO class:EdgeField - Edge Field created
-14:36.741 INFO class:EdgeField - Edge Field created
-14:36.742 INFO class:EdgeField - Edge Field created
-14:36.743 INFO class:EdgeField - Edge Field created
-14:36.744 INFO class:EdgeField - Edge Field created
-14:36.744 INFO class:EdgeField - Edge Field created
-14:36.745 INFO class:EdgeField - Edge Field created
-14:36.746 INFO class:EdgeTable - STUDENT calls toString()
-14:36.747 INFO class:EdgeTable - Creating a save file
-14:36.747 INFO class:EdgeTable - FACULTY calls toString()
-14:36.747 INFO class:EdgeTable - Creating a save file
-14:36.748 INFO class:EdgeTable - COURSES calls toString()
-14:36.748 INFO class:EdgeTable - Creating a save file
-14:38.378 INFO class:EdgeConvertFileParser - Opening file: Courses3.edg.sav
-14:38.384 INFO class:EdgeField - Edge Field created
-14:38.385 INFO class:EdgeField - Edge Field created
-14:38.386 INFO class:EdgeField - Edge Field created
-14:38.387 INFO class:EdgeField - Edge Field created
-14:38.387 INFO class:EdgeField - Edge Field created
-14:38.388 INFO class:EdgeField - Edge Field created
-14:38.389 INFO class:EdgeField - Edge Field created
-14:39.348 INFO class:EdgeConvertFileParser - Opening file: Courses4.edg.sav
-14:39.351 INFO class:EdgeField - Edge Field created
-14:39.351 INFO class:EdgeField - Edge Field created
-14:39.352 INFO class:EdgeField - Edge Field created
-14:39.352 INFO class:EdgeField - Edge Field created
-14:39.353 INFO class:EdgeField - Edge Field created
-14:39.353 INFO class:EdgeField - Edge Field created
-14:39.354 INFO class:EdgeField - Edge Field created
-14:39.789 INFO class:EdgeConvertFileParser - Opening file: Courses2.edg.sav
-14:39.791 INFO class:EdgeField - Edge Field created
-14:39.792 INFO class:EdgeField - Edge Field created
-14:39.793 INFO class:EdgeField - Edge Field created
-14:39.793 INFO class:EdgeField - Edge Field created
-14:39.794 INFO class:EdgeField - Edge Field created
-14:39.794 INFO class:EdgeField - Edge Field created
-14:39.795 INFO class:EdgeField - Edge Field created
-14:41.012 WARN class:RunEdgeConvert - Warning: Name was null. Name must be included
-14:41.547 WARN class:RunEdgeConvert - Warning: Name was null. Name must be included
+<pre>45:10.076 INFO class:EdgeConvertFileParser - Opening file: Courses8.edg.sav
+45:10.093 INFO class:EdgeField - Edge Field created
+45:10.095 INFO class:EdgeField - Edge Field created
+45:10.096 INFO class:EdgeField - Edge Field created
+45:10.097 INFO class:EdgeField - Edge Field created
+45:10.098 INFO class:EdgeField - Edge Field created
+45:10.098 INFO class:EdgeField - Edge Field created
+45:10.099 INFO class:EdgeField - Edge Field created
+45:14.453 INFO class:EdgeConvertFileParser - Opening file: Courses2.edg.sav
+45:14.459 INFO class:EdgeField - Edge Field created
+45:14.460 INFO class:EdgeField - Edge Field created
+45:14.461 INFO class:EdgeField - Edge Field created
+45:14.462 INFO class:EdgeField - Edge Field created
+45:14.463 INFO class:EdgeField - Edge Field created
+45:14.464 INFO class:EdgeField - Edge Field created
+45:14.465 INFO class:EdgeField - Edge Field created
+45:14.466 INFO class:EdgeTable - STUDENT calls toString()
+45:14.467 INFO class:EdgeTable - Creating a save file
+45:14.467 INFO class:EdgeTable - FACULTY calls toString()
+45:14.468 INFO class:EdgeTable - Creating a save file
+45:14.468 INFO class:EdgeTable - COURSES calls toString()
+45:14.468 INFO class:EdgeTable - Creating a save file
+45:16.279 WARN class:RunEdgeConvert - Warning: Name was null. Name must be included
+45:18.858 WARN class:RunEdgeConvert - Warning: Name was null. Name must be included
+45:21.612 INFO class:EdgeConvertFileParser - Opening file: Courses3.edg.sav
+45:21.617 INFO class:EdgeField - Edge Field created
+45:21.618 INFO class:EdgeField - Edge Field created
+45:21.618 INFO class:EdgeField - Edge Field created
+45:21.619 INFO class:EdgeField - Edge Field created
+45:21.620 INFO class:EdgeField - Edge Field created
+45:21.621 INFO class:EdgeField - Edge Field created
+45:21.621 INFO class:EdgeField - Edge Field created
+45:23.056 INFO class:EdgeConvertFileParser - Opening file: Courses4.edg.sav
+45:23.062 INFO class:EdgeField - Edge Field created
+45:23.063 INFO class:EdgeField - Edge Field created
+45:23.064 INFO class:EdgeField - Edge Field created
+45:23.069 INFO class:EdgeField - Edge Field created
+45:23.069 INFO class:EdgeField - Edge Field created
+45:23.070 INFO class:EdgeField - Edge Field created
+45:23.070 INFO class:EdgeField - Edge Field created
+45:25.422 INFO class:EdgeConvertFileParser - Opening file: Courses2.edg.sav
+45:25.425 INFO class:EdgeField - Edge Field created
+45:25.426 INFO class:EdgeField - Edge Field created
+45:25.427 INFO class:EdgeField - Edge Field created
+45:25.428 INFO class:EdgeField - Edge Field created
+45:25.429 INFO class:EdgeField - Edge Field created
+45:25.429 INFO class:EdgeField - Edge Field created
+45:25.430 INFO class:EdgeField - Edge Field created
 </pre>
 </span>
 </div>
@@ -419,7 +271,7 @@ CREATE TABLE STUDE...&gt;
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.6</a> at Mar 31, 2024, 7:14:41 PM</p>
+<a href="http://www.gradle.org">Gradle 8.2</a> at Mar 31, 2024, 7:45:30 PM</p>
 </div>
 </div>
 </body>
