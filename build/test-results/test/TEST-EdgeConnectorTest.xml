@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="EdgeConnectorTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2024-03-04T21:56:25" hostname="admins-mbp-3.wireless.rit.edu" time="0.008">
+<testsuite name="EdgeConnectorTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2024-03-31T23:14:41" hostname="admins-MacBook-Pro-3.local" time="0.008">
   <properties/>
-  <testcase name="testGetEndPoint1" classname="EdgeConnectorTest" time="0.003"/>
-  <testcase name="testGetEndPoint2" classname="EdgeConnectorTest" time="0.0"/>
+  <testcase name="testGetEndPoint1" classname="EdgeConnectorTest" time="0.001"/>
+  <testcase name="testGetEndPoint2" classname="EdgeConnectorTest" time="0.001"/>
   <testcase name="testGetEndStyle1" classname="EdgeConnectorTest" time="0.0"/>
-  <testcase name="testGetEndStyle2" classname="EdgeConnectorTest" time="0.0"/>
+  <testcase name="testGetEndStyle2" classname="EdgeConnectorTest" time="0.001"/>
   <testcase name="testGetNumConnector" classname="EdgeConnectorTest" time="0.0"/>
   <testcase name="testGetIsEP1Field" classname="EdgeConnectorTest" time="0.0"/>
   <testcase name="testGetIsEP1Table" classname="EdgeConnectorTest" time="0.0"/>
-  <testcase name="testGetIsEP2Field" classname="EdgeConnectorTest" time="0.0"/>
+  <testcase name="testGetIsEP2Field" classname="EdgeConnectorTest" time="0.001"/>
   <testcase name="testGetIsEP2Table" classname="EdgeConnectorTest" time="0.0"/>
-  <testcase name="testSetIsEP1Field" classname="EdgeConnectorTest" time="0.0"/>
+  <testcase name="testSetIsEP1Field" classname="EdgeConnectorTest" time="0.001"/>
   <testcase name="testSetIsEP1Table" classname="EdgeConnectorTest" time="0.0"/>
   <testcase name="testSetIsEP2Field" classname="EdgeConnectorTest" time="0.0"/>
-  <testcase name="testSetIsEP2Table" classname="EdgeConnectorTest" time="0.0"/>
+  <testcase name="testSetIsEP2Table" classname="EdgeConnectorTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

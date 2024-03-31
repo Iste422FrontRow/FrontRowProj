@@ -1,0 +1,56 @@
+L14:34.431 INFO class:EdgeConvertFileParser - Opening file: Courses8.edg.sav
+414:34.445 INFO class:EdgeField - Edge Field created
+414:34.447 INFO class:EdgeField - Edge Field created
+414:34.448 INFO class:EdgeField - Edge Field created
+414:34.448 INFO class:EdgeField - Edge Field created
+414:34.449 INFO class:EdgeField - Edge Field created
+414:34.450 INFO class:EdgeField - Edge Field created
+414:34.451 INFO class:EdgeField - Edge Field created
+L14:36.736 INFO class:EdgeConvertFileParser - Opening file: Courses2.edg.sav
+414:36.741 INFO class:EdgeField - Edge Field created
+414:36.741 INFO class:EdgeField - Edge Field created
+414:36.742 INFO class:EdgeField - Edge Field created
+414:36.743 INFO class:EdgeField - Edge Field created
+414:36.744 INFO class:EdgeField - Edge Field created
+414:36.744 INFO class:EdgeField - Edge Field created
+414:36.745 INFO class:EdgeField - Edge Field created
+:14:36.746 INFO class:EdgeTable - STUDENT calls toString()
+614:36.747 INFO class:EdgeTable - Creating a save file
+:14:36.747 INFO class:EdgeTable - FACULTY calls toString()
+614:36.747 INFO class:EdgeTable - Creating a save file
+:14:36.748 INFO class:EdgeTable - COURSES calls toString()
+614:36.748 INFO class:EdgeTable - Creating a save file
+	L14:38.378 INFO class:EdgeConvertFileParser - Opening file: Courses3.edg.sav
+	414:38.384 INFO class:EdgeField - Edge Field created
+	414:38.385 INFO class:EdgeField - Edge Field created
+	414:38.386 INFO class:EdgeField - Edge Field created
+	414:38.387 INFO class:EdgeField - Edge Field created
+	414:38.387 INFO class:EdgeField - Edge Field created
+	414:38.388 INFO class:EdgeField - Edge Field created
+	414:38.389 INFO class:EdgeField - Edge Field created
+
+L14:39.348 INFO class:EdgeConvertFileParser - Opening file: Courses4.edg.sav
+
+414:39.351 INFO class:EdgeField - Edge Field created
+
+414:39.351 INFO class:EdgeField - Edge Field created
+
+414:39.352 INFO class:EdgeField - Edge Field created
+
+414:39.352 INFO class:EdgeField - Edge Field created
+
+414:39.353 INFO class:EdgeField - Edge Field created
+
+414:39.353 INFO class:EdgeField - Edge Field created
+
+414:39.354 INFO class:EdgeField - Edge Field created
+L14:39.789 INFO class:EdgeConvertFileParser - Opening file: Courses2.edg.sav
+414:39.791 INFO class:EdgeField - Edge Field created
+414:39.792 INFO class:EdgeField - Edge Field created
+414:39.793 INFO class:EdgeField - Edge Field created
+414:39.793 INFO class:EdgeField - Edge Field created
+414:39.794 INFO class:EdgeField - Edge Field created
+414:39.794 INFO class:EdgeField - Edge Field created
+414:39.795 INFO class:EdgeField - Edge Field created
+T14:41.012 WARN class:RunEdgeConvert - Warning: Name was null. Name must be included
+T14:41.547 WARN class:RunEdgeConvert - Warning: Name was null. Name must be included
