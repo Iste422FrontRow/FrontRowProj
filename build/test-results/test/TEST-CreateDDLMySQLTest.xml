@@ -1,117 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="CreateDDLMySQLTest" tests="14" skipped="0" failures="1" errors="0" timestamp="2024-03-31T23:45:10" hostname="admins-MacBook-Pro-3.local" time="20.164">
+<testsuite name="CreateDDLMySQLTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2024-04-01T00:08:11" hostname="admins-MacBook-Pro-3.local" time="6.644">
   <properties/>
-  <testcase name="testCreateDDLWithSQLInjection" classname="CreateDDLMySQLTest" time="3.392"/>
-  <testcase name="testConstructorWithEmptyValues" classname="CreateDDLMySQLTest" time="1.004"/>
-  <testcase name="testConstructorWithCorrectInfo" classname="CreateDDLMySQLTest" time="1.025"/>
-  <testcase name="testCreateDDLWithNullDatabaseName" classname="CreateDDLMySQLTest" time="1.803"/>
-  <testcase name="testConvertStrBooleanToIntTrue" classname="CreateDDLMySQLTest" time="1.005"/>
-  <testcase name="testGenerateDatabaseNameCancel" classname="CreateDDLMySQLTest" time="1.591">
-    <failure message="java.lang.AssertionError: Database is null expected null, but was:&lt;&gt;" type="java.lang.AssertionError">java.lang.AssertionError: Database is null expected null, but was:&lt;&gt;
-	at org.junit.Assert.fail(Assert.java:88)
-	at org.junit.Assert.failNotNull(Assert.java:755)
-	at org.junit.Assert.assertNull(Assert.java:737)
-	at CreateDDLMySQLTest.testGenerateDatabaseNameCancel(CreateDDLMySQLTest.java:208)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
-	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(JUnitTestClassExecutor.java:108)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:58)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:40)
-	at org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(AbstractJUnitTestClassProcessor.java:60)
-	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:52)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
-	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
-	at jdk.proxy1/jdk.proxy1.$Proxy2.processTestClass(Unknown Source)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker$2.run(TestWorker.java:176)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
-	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
-	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:113)
-	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:65)
-	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
-	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
-</failure>
-  </testcase>
-  <testcase name="testGenerateDatabaseName" classname="CreateDDLMySQLTest" time="1.731"/>
-  <testcase name="testCreateDDLWithConnections" classname="CreateDDLMySQLTest" time="1.446"/>
-  <testcase name="testCreateDDLWithCorruptedInfo" classname="CreateDDLMySQLTest" time="1.364"/>
-  <testcase name="testConstructorWithNullValues" classname="CreateDDLMySQLTest" time="1.0"/>
-  <testcase name="testGetSQLStringExpectedSQLString" classname="CreateDDLMySQLTest" time="1.386"/>
-  <testcase name="testConvertStrBooleanToIntOtherInput" classname="CreateDDLMySQLTest" time="1.004"/>
-  <testcase name="testConvertStrBooleanToIntFalse" classname="CreateDDLMySQLTest" time="1.001"/>
-  <testcase name="testCreateDDLWithNoInfo" classname="CreateDDLMySQLTest" time="1.41"/>
-  <system-out><![CDATA[45:10.076 INFO class:EdgeConvertFileParser - Opening file: Courses8.edg.sav
-45:10.093 INFO class:EdgeField - Edge Field created
-45:10.095 INFO class:EdgeField - Edge Field created
-45:10.096 INFO class:EdgeField - Edge Field created
-45:10.097 INFO class:EdgeField - Edge Field created
-45:10.098 INFO class:EdgeField - Edge Field created
-45:10.098 INFO class:EdgeField - Edge Field created
-45:10.099 INFO class:EdgeField - Edge Field created
-45:14.453 INFO class:EdgeConvertFileParser - Opening file: Courses2.edg.sav
-45:14.459 INFO class:EdgeField - Edge Field created
-45:14.460 INFO class:EdgeField - Edge Field created
-45:14.461 INFO class:EdgeField - Edge Field created
-45:14.462 INFO class:EdgeField - Edge Field created
-45:14.463 INFO class:EdgeField - Edge Field created
-45:14.464 INFO class:EdgeField - Edge Field created
-45:14.465 INFO class:EdgeField - Edge Field created
-45:14.466 INFO class:EdgeTable - STUDENT calls toString()
-45:14.467 INFO class:EdgeTable - Creating a save file
-45:14.467 INFO class:EdgeTable - FACULTY calls toString()
-45:14.468 INFO class:EdgeTable - Creating a save file
-45:14.468 INFO class:EdgeTable - COURSES calls toString()
-45:14.468 INFO class:EdgeTable - Creating a save file
-45:16.279 WARN class:RunEdgeConvert - Warning: Name was null. Name must be included
-45:18.858 WARN class:RunEdgeConvert - Warning: Name was null. Name must be included
-45:21.612 INFO class:EdgeConvertFileParser - Opening file: Courses3.edg.sav
-45:21.617 INFO class:EdgeField - Edge Field created
-45:21.618 INFO class:EdgeField - Edge Field created
-45:21.618 INFO class:EdgeField - Edge Field created
-45:21.619 INFO class:EdgeField - Edge Field created
-45:21.620 INFO class:EdgeField - Edge Field created
-45:21.621 INFO class:EdgeField - Edge Field created
-45:21.621 INFO class:EdgeField - Edge Field created
-45:23.056 INFO class:EdgeConvertFileParser - Opening file: Courses4.edg.sav
-45:23.062 INFO class:EdgeField - Edge Field created
-45:23.063 INFO class:EdgeField - Edge Field created
-45:23.064 INFO class:EdgeField - Edge Field created
-45:23.069 INFO class:EdgeField - Edge Field created
-45:23.069 INFO class:EdgeField - Edge Field created
-45:23.070 INFO class:EdgeField - Edge Field created
-45:23.070 INFO class:EdgeField - Edge Field created
-45:25.422 INFO class:EdgeConvertFileParser - Opening file: Courses2.edg.sav
-45:25.425 INFO class:EdgeField - Edge Field created
-45:25.426 INFO class:EdgeField - Edge Field created
-45:25.427 INFO class:EdgeField - Edge Field created
-45:25.428 INFO class:EdgeField - Edge Field created
-45:25.429 INFO class:EdgeField - Edge Field created
-45:25.429 INFO class:EdgeField - Edge Field created
-45:25.430 INFO class:EdgeField - Edge Field created
+  <testcase name="testCreateDDLWithSQLInjection" classname="CreateDDLMySQLTest" time="2.827"/>
+  <testcase name="testConstructorWithEmptyValues" classname="CreateDDLMySQLTest" time="0.001"/>
+  <testcase name="testConstructorWithCorrectInfo" classname="CreateDDLMySQLTest" time="0.019"/>
+  <testcase name="testCreateDDLWithNullDatabaseName" classname="CreateDDLMySQLTest" time="1.03"/>
+  <testcase name="testConvertStrBooleanToIntTrue" classname="CreateDDLMySQLTest" time="0.001"/>
+  <testcase name="testGenerateDatabaseNameCancel" classname="CreateDDLMySQLTest" time="0.464"/>
+  <testcase name="testGenerateDatabaseName" classname="CreateDDLMySQLTest" time="0.626"/>
+  <testcase name="testCreateDDLWithConnections" classname="CreateDDLMySQLTest" time="0.451"/>
+  <testcase name="testCreateDDLWithCorruptedInfo" classname="CreateDDLMySQLTest" time="0.398"/>
+  <testcase name="testConstructorWithNullValues" classname="CreateDDLMySQLTest" time="0.0"/>
+  <testcase name="testGetSQLStringExpectedSQLString" classname="CreateDDLMySQLTest" time="0.406"/>
+  <testcase name="testConvertStrBooleanToIntOtherInput" classname="CreateDDLMySQLTest" time="0.0"/>
+  <testcase name="testConvertStrBooleanToIntFalse" classname="CreateDDLMySQLTest" time="0.0"/>
+  <testcase name="testCreateDDLWithNoInfo" classname="CreateDDLMySQLTest" time="0.417"/>
+  <system-out><![CDATA[08:11.059 INFO class:EdgeConvertFileParser - Opening file: Courses8.edg.sav
+08:11.071 INFO class:EdgeField - Edge Field created
+08:11.073 INFO class:EdgeField - Edge Field created
+08:11.073 INFO class:EdgeField - Edge Field created
+08:11.074 INFO class:EdgeField - Edge Field created
+08:11.075 INFO class:EdgeField - Edge Field created
+08:11.076 INFO class:EdgeField - Edge Field created
+08:11.077 INFO class:EdgeField - Edge Field created
+08:13.879 INFO class:EdgeConvertFileParser - Opening file: Courses2.edg.sav
+08:13.883 INFO class:EdgeField - Edge Field created
+08:13.884 INFO class:EdgeField - Edge Field created
+08:13.885 INFO class:EdgeField - Edge Field created
+08:13.885 INFO class:EdgeField - Edge Field created
+08:13.886 INFO class:EdgeField - Edge Field created
+08:13.887 INFO class:EdgeField - Edge Field created
+08:13.888 INFO class:EdgeField - Edge Field created
+08:13.890 INFO class:EdgeTable - STUDENT calls toString()
+08:13.890 INFO class:EdgeTable - Creating a save file
+08:13.891 INFO class:EdgeTable - FACULTY calls toString()
+08:13.891 INFO class:EdgeTable - Creating a save file
+08:13.891 INFO class:EdgeTable - COURSES calls toString()
+08:13.891 INFO class:EdgeTable - Creating a save file
+08:14.926 WARN class:RunEdgeConvert - Warning: Name was null. Name must be included
+08:15.392 WARN class:RunEdgeConvert - Warning: Name was null. Name must be included
+08:16.020 INFO class:EdgeConvertFileParser - Opening file: Courses3.edg.sav
+08:16.023 INFO class:EdgeField - Edge Field created
+08:16.024 INFO class:EdgeField - Edge Field created
+08:16.026 INFO class:EdgeField - Edge Field created
+08:16.026 INFO class:EdgeField - Edge Field created
+08:16.027 INFO class:EdgeField - Edge Field created
+08:16.028 INFO class:EdgeField - Edge Field created
+08:16.029 INFO class:EdgeField - Edge Field created
+08:16.471 INFO class:EdgeConvertFileParser - Opening file: Courses4.edg.sav
+08:16.474 INFO class:EdgeField - Edge Field created
+08:16.475 INFO class:EdgeField - Edge Field created
+08:16.476 INFO class:EdgeField - Edge Field created
+08:16.476 INFO class:EdgeField - Edge Field created
+08:16.477 INFO class:EdgeField - Edge Field created
+08:16.477 INFO class:EdgeField - Edge Field created
+08:16.478 INFO class:EdgeField - Edge Field created
+08:16.870 INFO class:EdgeConvertFileParser - Opening file: Courses2.edg.sav
+08:16.872 INFO class:EdgeField - Edge Field created
+08:16.873 INFO class:EdgeField - Edge Field created
+08:16.873 INFO class:EdgeField - Edge Field created
+08:16.873 INFO class:EdgeField - Edge Field created
+08:16.874 INFO class:EdgeField - Edge Field created
+08:16.874 INFO class:EdgeField - Edge Field created
+08:16.875 INFO class:EdgeField - Edge Field created
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

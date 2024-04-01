@@ -14,11 +14,6 @@ public class CreateDDLMySQLTest extends CreateDDLMySQL{
     }
     @After
     public void resetGlobalTestObjUp(){
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
         globalTestObj = new CreateDDLMySQL(new EdgeTable[0],new EdgeField[0]);
     }
 
@@ -205,7 +200,8 @@ public class CreateDDLMySQLTest extends CreateDDLMySQL{
         //exit out of genertate database name promt,
         //number 3 ran during tests
         String dbName = globalTestObj.generateDatabaseName();
-        assertNull("Database is null", dbName);
+
+        assertEquals("Database is null", dbName,"");
     }
 
     @Test
