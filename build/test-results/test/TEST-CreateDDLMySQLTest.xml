@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="CreateDDLMySQLTest" tests="1" skipped="1" failures="0" errors="0" timestamp="2024-04-01T00:01:55" hostname="admins-MacBook-Pro-3.local" time="0.387">
+  <properties/>
+  <testcase name="testCreateDDLWithSQLInjection" classname="CreateDDLMySQLTest" time="0.387">
+    <skipped/>
+  </testcase>
+  <system-out><![CDATA[01:55.708 INFO class:EdgeConvertFileParser - Opening file: Courses8.edg.sav
+01:55.710 ERROR class:EdgeConvertFileParser - Cannot find file: Courses8.edg.sav
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
