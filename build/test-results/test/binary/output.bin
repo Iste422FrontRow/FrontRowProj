@@ -1,2 +1,123 @@
-L01:55.708 INFO class:EdgeConvertFileParser - Opening file: Courses8.edg.sav
-Q01:55.710 ERROR class:EdgeConvertFileParser - Cannot find file: Courses8.edg.sav
+L41:15.876 INFO class:EdgeConvertFileParser - Opening file: Courses8.edg.sav
+441:15.888 INFO class:EdgeField - Edge Field created
+441:15.890 INFO class:EdgeField - Edge Field created
+441:15.891 INFO class:EdgeField - Edge Field created
+441:15.891 INFO class:EdgeField - Edge Field created
+441:15.892 INFO class:EdgeField - Edge Field created
+441:15.893 INFO class:EdgeField - Edge Field created
+441:15.894 INFO class:EdgeField - Edge Field created
+L41:19.270 INFO class:EdgeConvertFileParser - Opening file: Courses2.edg.sav
+441:19.274 INFO class:EdgeField - Edge Field created
+441:19.275 INFO class:EdgeField - Edge Field created
+441:19.276 INFO class:EdgeField - Edge Field created
+441:19.276 INFO class:EdgeField - Edge Field created
+441:19.277 INFO class:EdgeField - Edge Field created
+441:19.277 INFO class:EdgeField - Edge Field created
+441:19.278 INFO class:EdgeField - Edge Field created
+:41:19.279 INFO class:EdgeTable - STUDENT calls toString()
+641:19.279 INFO class:EdgeTable - Creating a save file
+:41:19.280 INFO class:EdgeTable - FACULTY calls toString()
+641:19.280 INFO class:EdgeTable - Creating a save file
+:41:19.280 INFO class:EdgeTable - COURSES calls toString()
+641:19.280 INFO class:EdgeTable - Creating a save file
+T41:20.490 WARN class:RunEdgeConvert - Warning: Name was null. Name must be included
+T41:20.988 WARN class:RunEdgeConvert - Warning: Name was null. Name must be included
+	L41:22.387 INFO class:EdgeConvertFileParser - Opening file: Courses3.edg.sav
+	441:22.390 INFO class:EdgeField - Edge Field created
+	441:22.391 INFO class:EdgeField - Edge Field created
+	441:22.392 INFO class:EdgeField - Edge Field created
+	441:22.393 INFO class:EdgeField - Edge Field created
+	441:22.394 INFO class:EdgeField - Edge Field created
+	441:22.394 INFO class:EdgeField - Edge Field created
+	441:22.395 INFO class:EdgeField - Edge Field created
+
+L41:22.805 INFO class:EdgeConvertFileParser - Opening file: Courses4.edg.sav
+
+441:22.807 INFO class:EdgeField - Edge Field created
+
+441:22.808 INFO class:EdgeField - Edge Field created
+
+441:22.808 INFO class:EdgeField - Edge Field created
+
+441:22.809 INFO class:EdgeField - Edge Field created
+
+441:22.809 INFO class:EdgeField - Edge Field created
+
+441:22.810 INFO class:EdgeField - Edge Field created
+
+441:22.810 INFO class:EdgeField - Edge Field created
+L41:23.232 INFO class:EdgeConvertFileParser - Opening file: Courses2.edg.sav
+441:23.234 INFO class:EdgeField - Edge Field created
+441:23.235 INFO class:EdgeField - Edge Field created
+441:23.236 INFO class:EdgeField - Edge Field created
+441:23.236 INFO class:EdgeField - Edge Field created
+441:23.237 INFO class:EdgeField - Edge Field created
+441:23.237 INFO class:EdgeField - Edge Field created
+441:23.237 INFO class:EdgeField - Edge Field created
+441:24.096 INFO class:EdgeField - Edge Field created
+ 441:24.096 INFO class:EdgeField - Edge Field created
+!441:24.097 INFO class:EdgeField - Edge Field created
+"441:24.097 INFO class:EdgeField - Edge Field created
+#441:24.098 INFO class:EdgeField - Edge Field created
+$441:24.099 INFO class:EdgeField - Edge Field created
+%441:24.100 INFO class:EdgeField - Edge Field created
+&441:24.100 INFO class:EdgeField - Edge Field created
+'441:24.101 INFO class:EdgeField - Edge Field created
+(441:24.101 INFO class:EdgeField - Edge Field created
+)441:24.102 INFO class:EdgeField - Edge Field created
+*441:24.102 INFO class:EdgeField - Edge Field created
++441:24.103 INFO class:EdgeField - Edge Field created
+,441:24.103 INFO class:EdgeField - Edge Field created
+,=41:24.103 ERROR class:EdgeField - Error parsing inputString:
+,Bjava.lang.NumberFormatException: For input string: "InvalidInput"
+,Y	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:67) ~[?:?]
+,8	at java.lang.Integer.parseInt(Integer.java:662) ~[?:?]
+,8	at java.lang.Integer.parseInt(Integer.java:778) ~[?:?]
+,2	at EdgeField.<init>(EdgeField.java:20) [main/:?]
+,p	at EdgeFieldTest.testThrowsErrorWhenConstructingWithInvalidInputStringFormat(EdgeFieldTest.java:150) [test/:?]
+,g	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+,<	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+,o	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50) [junit-4.12.jar:4.12]
+,n	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.12.jar:4.12]
+,m	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47) [junit-4.12.jar:4.12]
+,l	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17) [junit-4.12.jar:4.12]
+,r	at org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:19) [junit-4.12.jar:4.12]
+,X	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325) [junit-4.12.jar:4.12]
+,l	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78) [junit-4.12.jar:4.12]
+,l	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57) [junit-4.12.jar:4.12]
+,V	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit-4.12.jar:4.12]
+,Z	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit-4.12.jar:4.12]
+,\	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit-4.12.jar:4.12]
+,Z	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit-4.12.jar:4.12]
+,[	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit-4.12.jar:4.12]
+,T	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit-4.12.jar:4.12]
+,•	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(JUnitTestClassExecutor.java:112) [gradle-testing-jvm-infrastructure-8.6.jar:8.6]
+,ü	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:58) [gradle-testing-jvm-infrastructure-8.6.jar:8.6]
+,ü	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:40) [gradle-testing-jvm-infrastructure-8.6.jar:8.6]
+,∫	at org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(AbstractJUnitTestClassProcessor.java:60) [gradle-testing-jvm-infrastructure-8.6.jar:8.6]
+,ñ	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:52) [gradle-testing-base-8.6.jar:8.6]
+,g	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+,<	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+,x	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36) [gradle-messaging-8.6.jar:8.6]
+,x	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24) [gradle-messaging-8.6.jar:8.6]
+,à	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33) [gradle-messaging-8.6.jar:8.6]
+,ó	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94) [gradle-messaging-8.6.jar:8.6]
+,>	at jdk.proxy1.$Proxy2.processTestClass(Unknown Source) [?:?]
+,y	at org.gradle.api.internal.tasks.testing.worker.TestWorker$2.run(TestWorker.java:176) [gradle-testing-base-8.6.jar:8.6]
+,ê	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129) [gradle-testing-base-8.6.jar:8.6]
+,{	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100) [gradle-testing-base-8.6.jar:8.6]
+,z	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60) [gradle-testing-base-8.6.jar:8.6]
+,ê	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56) [gradle-worker-processes-8.6.jar:8.6]
+,®	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:113) [gradle-worker-processes-8.6.jar:8.6]
+,ß	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:65) [gradle-worker-processes-8.6.jar:8.6]
+,s	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69) [gradle-worker.jar:?]
+,t	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74) [gradle-worker.jar:?]
+-441:24.114 INFO class:EdgeField - Edge Field created
+.441:24.115 INFO class:EdgeField - Edge Field created
+/441:24.115 INFO class:EdgeField - Edge Field created
+1441:24.116 INFO class:EdgeField - Edge Field created
+2441:24.116 INFO class:EdgeField - Edge Field created
+3441:24.117 INFO class:EdgeField - Edge Field created
+4441:24.118 INFO class:EdgeField - Edge Field created
+5441:24.118 INFO class:EdgeField - Edge Field created
+6441:24.118 INFO class:EdgeField - Edge Field created

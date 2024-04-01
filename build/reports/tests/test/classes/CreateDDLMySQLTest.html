@@ -23,7 +23,7 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">1</div>
+<div class="counter">14</div>
 <p>tests</p>
 </div>
 </td>
@@ -35,13 +35,13 @@
 </td>
 <td>
 <div class="infoBox" id="ignored">
-<div class="counter">1</div>
+<div class="counter">0</div>
 <p>ignored</p>
 </div>
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.387s</div>
+<div class="counter">8.216s</div>
 <p>duration</p>
 </div>
 </td>
@@ -50,8 +50,8 @@
 </div>
 </td>
 <td>
-<div class="infoBox skipped" id="successRate">
-<div class="percent">-</div>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
 <p>successful</p>
 </div>
 </td>
@@ -78,17 +78,128 @@
 </tr>
 </thead>
 <tr>
-<td class="skipped">testCreateDDLWithSQLInjection</td>
-<td class="skipped">-</td>
-<td class="skipped">ignored</td>
+<td class="success">testConstructorWithCorrectInfo</td>
+<td class="success">0.018s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testConstructorWithEmptyValues</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testConstructorWithNullValues</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testConvertStrBooleanToIntFalse</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testConvertStrBooleanToIntOtherInput</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testConvertStrBooleanToIntTrue</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testCreateDDLWithConnections</td>
+<td class="success">0.418s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testCreateDDLWithCorruptedInfo</td>
+<td class="success">0.425s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testCreateDDLWithNoInfo</td>
+<td class="success">0.433s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testCreateDDLWithNullDatabaseName</td>
+<td class="success">1.204s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testCreateDDLWithSQLInjection</td>
+<td class="success">3.401s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testGenerateDatabaseName</td>
+<td class="success">1.397s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testGenerateDatabaseNameCancel</td>
+<td class="success">0.497s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testGetSQLStringExpectedSQLString</td>
+<td class="success">0.418s</td>
+<td class="success">passed</td>
 </tr>
 </table>
 </div>
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>01:55.708 INFO class:EdgeConvertFileParser - Opening file: Courses8.edg.sav
-01:55.710 ERROR class:EdgeConvertFileParser - Cannot find file: Courses8.edg.sav
+<pre>41:15.876 INFO class:EdgeConvertFileParser - Opening file: Courses8.edg.sav
+41:15.888 INFO class:EdgeField - Edge Field created
+41:15.890 INFO class:EdgeField - Edge Field created
+41:15.891 INFO class:EdgeField - Edge Field created
+41:15.891 INFO class:EdgeField - Edge Field created
+41:15.892 INFO class:EdgeField - Edge Field created
+41:15.893 INFO class:EdgeField - Edge Field created
+41:15.894 INFO class:EdgeField - Edge Field created
+41:19.270 INFO class:EdgeConvertFileParser - Opening file: Courses2.edg.sav
+41:19.274 INFO class:EdgeField - Edge Field created
+41:19.275 INFO class:EdgeField - Edge Field created
+41:19.276 INFO class:EdgeField - Edge Field created
+41:19.276 INFO class:EdgeField - Edge Field created
+41:19.277 INFO class:EdgeField - Edge Field created
+41:19.277 INFO class:EdgeField - Edge Field created
+41:19.278 INFO class:EdgeField - Edge Field created
+41:19.279 INFO class:EdgeTable - STUDENT calls toString()
+41:19.279 INFO class:EdgeTable - Creating a save file
+41:19.280 INFO class:EdgeTable - FACULTY calls toString()
+41:19.280 INFO class:EdgeTable - Creating a save file
+41:19.280 INFO class:EdgeTable - COURSES calls toString()
+41:19.280 INFO class:EdgeTable - Creating a save file
+41:20.490 WARN class:RunEdgeConvert - Warning: Name was null. Name must be included
+41:20.988 WARN class:RunEdgeConvert - Warning: Name was null. Name must be included
+41:22.387 INFO class:EdgeConvertFileParser - Opening file: Courses3.edg.sav
+41:22.390 INFO class:EdgeField - Edge Field created
+41:22.391 INFO class:EdgeField - Edge Field created
+41:22.392 INFO class:EdgeField - Edge Field created
+41:22.393 INFO class:EdgeField - Edge Field created
+41:22.394 INFO class:EdgeField - Edge Field created
+41:22.394 INFO class:EdgeField - Edge Field created
+41:22.395 INFO class:EdgeField - Edge Field created
+41:22.805 INFO class:EdgeConvertFileParser - Opening file: Courses4.edg.sav
+41:22.807 INFO class:EdgeField - Edge Field created
+41:22.808 INFO class:EdgeField - Edge Field created
+41:22.808 INFO class:EdgeField - Edge Field created
+41:22.809 INFO class:EdgeField - Edge Field created
+41:22.809 INFO class:EdgeField - Edge Field created
+41:22.810 INFO class:EdgeField - Edge Field created
+41:22.810 INFO class:EdgeField - Edge Field created
+41:23.232 INFO class:EdgeConvertFileParser - Opening file: Courses2.edg.sav
+41:23.234 INFO class:EdgeField - Edge Field created
+41:23.235 INFO class:EdgeField - Edge Field created
+41:23.236 INFO class:EdgeField - Edge Field created
+41:23.236 INFO class:EdgeField - Edge Field created
+41:23.237 INFO class:EdgeField - Edge Field created
+41:23.237 INFO class:EdgeField - Edge Field created
+41:23.237 INFO class:EdgeField - Edge Field created
 </pre>
 </span>
 </div>
@@ -100,7 +211,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.6</a> at Mar 31, 2024, 8:01:56 PM</p>
+<a href="http://www.gradle.org">Gradle 8.6</a> at Mar 31, 2024, 8:41:24 PM</p>
 </div>
 </div>
 </body>
