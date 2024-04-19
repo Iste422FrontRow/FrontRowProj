@@ -32,7 +32,9 @@ public class EdgeTable {
    
    public void addRelatedTable(int relatedTable) {
       log.debug("Connecting:" + name + "in edge tables array with index:" + numFigure+ "to table with index" + relatedTable);
-      alRelatedTables.add(new Integer(relatedTable));
+      //alRelatedTables.add(new Integer(relatedTable));
+      //Changed method call
+      alRelatedTables.add(Integer.valueOf(relatedTable));
    }
    
    public int[] getRelatedTablesArray() {
@@ -58,7 +60,8 @@ public class EdgeTable {
    public void addNativeField(int value) {
       log.debug("Connecting:" + name + "in edge tables array with its native fields with value/index " + value );
 
-      alNativeFields.add(new Integer(value));
+      //alNativeFields.add(new Integer(value));
+      alNativeFields.add(Integer.valueOf(value));
    }
 
    public void moveFieldUp(int index) {

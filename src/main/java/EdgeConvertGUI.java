@@ -1052,14 +1052,18 @@
                if (resultClass.getSuperclass().getName().equals("EdgeConvertCreateDDL")) { //only interested in classes that extend EdgeConvertCreateDDL
                   if (parseFile == null && saveFile == null) {
                      conResultClass = resultClass.getConstructor(paramTypesNull);
-                     objOutput = conResultClass.newInstance(null);
+                     //Changing this line
+                      objOutput = conResultClass.newInstance(new Object[]{});
                      } else {
                      conResultClass = resultClass.getConstructor(paramTypes);
                      objOutput = conResultClass.newInstance(args);
                   }
                   alSubclasses.add(objOutput);
-                  Method getProductName = resultClass.getMethod("getProductName", null);
-                  String productName = (String)getProductName.invoke(objOutput, null);
+//                  Method getProductName = resultClass.getMethod("getProductName", null);
+//                  String productName = (String)getProductName.invoke(objOutput, null);
+                   //Replaced
+                   Method getProductName = resultClass.getMethod("getProductName", new Class<?>[]{});
+                   String productName = (String) getProductName.invoke(objOutput, new Object[]{});
                   alProductNames.add(productName);
                }
             }
@@ -1114,10 +1118,14 @@
          try {
 
             Class selectedSubclass = objSubclasses[selected].getClass();
-            Method getSQLString = selectedSubclass.getMethod("getSQLString", null);
-            Method getDatabaseName = selectedSubclass.getMethod("getDatabaseName", null);
-            strSQLString = (String)getSQLString.invoke(objSubclasses[selected], null);
-            databaseName = (String)getDatabaseName.invoke(objSubclasses[selected], null);
+//            Method getSQLString = selectedSubclass.getMethod("getSQLString", null);
+//            Method getDatabaseName = selectedSubclass.getMethod("getDatabaseName", null);
+             Method getSQLString = selectedSubclass.getMethod("getSQLString", new Class<?>[]{});
+             Method getDatabaseName = selectedSubclass.getMethod("getDatabaseName", new Class<?>[]{});
+//            strSQLString = (String)getSQLString.invoke(objSubclasses[selected], null);
+//            databaseName = (String)getDatabaseName.invoke(objSubclasses[selected], null);
+             strSQLString = (String) getSQLString.invoke(objSubclasses[selected], new Object[]{});
+             databaseName = (String) getDatabaseName.invoke(objSubclasses[selected], new Object[]{});
          } catch (IllegalAccessException iae) {
              log.warn(iae.getMessage());
 
