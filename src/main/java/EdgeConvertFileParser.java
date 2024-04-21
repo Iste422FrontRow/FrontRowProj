@@ -4,28 +4,16 @@ import javax.swing.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class EdgeConvertFileParser {
+public class  EdgeConvertFileParser {
    //private String filename = "test.edg";
    private File parseFile;
-   private FileReader fr;
-   private BufferedReader br;
-   private String currentLine;
-   private ArrayList alTables, alFields, alConnectors;
+   protected ArrayList alTables, alFields, alConnectors;
    private EdgeTable[] tables;
    private EdgeField[] fields;
-   private EdgeField tempField;
    private EdgeConnector[] connectors;
-   private String style;
-   private String text;
-   private String tableName;
-   private String fieldName;
-   private boolean isEntity, isAttribute, isUnderlined = false;
-   private int numFigure, numConnector, numFields, numTables, numNativeRelatedFields;
-   private int endPoint1, endPoint2;
-   private int numLine;
-   private String endStyle1, endStyle2;
-   private EdgeFileParser parser;
-   private EdgeSaveParser saveparser;
+   private BufferedReader br;
+
+
    public static final String EDGE_ID = "EDGE Diagram File"; //first line of .edg files should be this
    public static final String SAVE_ID = "EdgeConvert Save File"; //first line of save files should be this
    public static final String DELIM = "|";
@@ -33,16 +21,14 @@ public class EdgeConvertFileParser {
 
    
    public EdgeConvertFileParser(File constructorFile) {
-      numFigure = 0;
-      numConnector = 0;
       alTables = new ArrayList();
       alFields = new ArrayList();
       alConnectors = new ArrayList();
-      isEntity = false;
-      isAttribute = false;
       parseFile = constructorFile;
-      numLine = 0;
       this.openFile(parseFile);
+
+   }
+   public EdgeConvertFileParser() {
 
    }
    
@@ -127,17 +113,6 @@ public class EdgeConvertFileParser {
       }
    }
    
-   private boolean isTableDup(String testTableName) {
-      log.debug("making sure table "+ testTableName+ " is not a dup");
-      for (int i = 0; i < alTables.size(); i++) {
-         EdgeTable tempTable = (EdgeTable)alTables.get(i);
-         if (tempTable.getName().equals(testTableName)) {
-            return true;
-         }
-      }
-      return false;
-   }
-   
    public EdgeTable[] getEdgeTables() {
       log.debug("getting edge tables");
       return tables;
@@ -150,13 +125,14 @@ public class EdgeConvertFileParser {
    }
    
    public void openFile(File inputFile) {
+      int numLine = 0;
       try {
          log.info("Opening file: {}", inputFile.getName());
-         fr = new FileReader(inputFile);
+         FileReader fr = new FileReader(inputFile);
          br = new BufferedReader(fr);
-         parser = new EdgeFileParser(br, inputFile);
+         EdgeFileParser parser = new EdgeFileParser(inputFile,br);
          //test for what kind of file we have
-         currentLine = br.readLine().trim();
+         String currentLine = br.readLine().trim();
          numLine++;
          if (currentLine.startsWith(EDGE_ID)) { //the file chosen is an Edge Diagrammer file
             parser.parseEdgeFile(); //parse the file
@@ -165,7 +141,7 @@ public class EdgeConvertFileParser {
             this.resolveConnectors(); //Identify nature of Connector endpoints
          } else {
             if (currentLine.startsWith(SAVE_ID)) { //the file chosen is a Save file created by this application
-               saveparser = new EdgeSaveParser(br, inputFile);
+               EdgeSaveParser saveparser = new EdgeSaveParser(inputFile,br);
                saveparser.parseSaveFile(); //parse the file
                br.close();
                this.makeArrays(); //convert ArrayList objects into arrays of the appropriate Class type

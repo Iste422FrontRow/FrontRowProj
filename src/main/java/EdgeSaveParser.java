@@ -4,49 +4,46 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 
-public class EdgeSaveParser {
+public class EdgeSaveParser extends EdgeConvertFileParser {
  
-   //private String filename = "test.edg";
    private BufferedReader br;
-   private String currentLine;
-   private ArrayList alTables, alFields;
-   private String tableName;
-   private String fieldName;
-   private int numFigure, numFields, numTables;
-   public static final String DELIM = "|";
-   public static Logger log = LogManager.getLogger(EdgeConvertFileParser.class);
+    private int numFigure;
+    public static final String DELIM = "|";
+   public static Logger log = LogManager.getLogger(EdgeSaveParser.class);
+    private File parseFile;
 
-   public EdgeSaveParser(BufferedReader br, File parseFile){
-    numFigure = 0;
-    alTables = new ArrayList();
-    alFields = new ArrayList();
-    this.br = br;
-    }
+   public EdgeSaveParser(File parseFile,BufferedReader br){
+       super();
+       numFigure = 0;
+       this.parseFile = parseFile;
+       this.br = br;
+
+   }
 
     public void parseSaveFile() throws IOException { //this method is unclear and confusing in places
         log.debug("Changing save file and parsing it");
         StringTokenizer stTables, stNatFields, stRelFields, stField;
         EdgeTable tempTable;
         EdgeField tempField;
-        currentLine = br.readLine();
+        String currentLine = br.readLine();
         currentLine = br.readLine(); //this should be "Table: "
         while (currentLine.startsWith("Table: ")) {
            numFigure = Integer.parseInt(currentLine.substring(currentLine.indexOf(" ") + 1)); //get the Table number
            currentLine = br.readLine(); //this should be "{"
            currentLine = br.readLine(); //this should be "TableName"
-           tableName = currentLine.substring(currentLine.indexOf(" ") + 1);
+            String tableName = currentLine.substring(currentLine.indexOf(" ") + 1);
            tempTable = new EdgeTable(numFigure + DELIM + tableName);
            
            currentLine = br.readLine(); //this should be the NativeFields list
            stNatFields = new StringTokenizer(currentLine.substring(currentLine.indexOf(" ") + 1), DELIM);
-           numFields = stNatFields.countTokens();
+            int numFields = stNatFields.countTokens();
            for (int i = 0; i < numFields; i++) {
               tempTable.addNativeField(Integer.parseInt(stNatFields.nextToken()));
            }
            
            currentLine = br.readLine(); //this should be the RelatedTables list
            stTables = new StringTokenizer(currentLine.substring(currentLine.indexOf(" ") + 1), DELIM);
-           numTables = stTables.countTokens();
+            int numTables = stTables.countTokens();
            for (int i = 0; i < numTables; i++) {
               tempTable.addRelatedTable(Integer.parseInt(stTables.nextToken()));
            }
@@ -68,7 +65,7 @@ public class EdgeSaveParser {
         while ((currentLine = br.readLine()) != null) {
            stField = new StringTokenizer(currentLine, DELIM);
            numFigure = Integer.parseInt(stField.nextToken());
-           fieldName = stField.nextToken();
+            String fieldName = stField.nextToken();
            tempField = new EdgeField(numFigure + DELIM + fieldName);
            tempField.setTableID(Integer.parseInt(stField.nextToken()));
            tempField.setTableBound(Integer.parseInt(stField.nextToken()));
