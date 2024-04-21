@@ -9,12 +9,15 @@ public class EdgeConvertCreateDDLTest {
     EdgeTable[] tables;
     public EdgeConvertCreateDDLTest() {
         this.fields = new EdgeField[]{new EdgeField("1|Field"), new EdgeField("2|Field2")};
-        this.tables = new EdgeTable[]{new EdgeTable("1|Table"), new EdgeTable("1Table|2")};
+        this.tables = new EdgeTable[]{new EdgeTable("1|Table"), new EdgeTable("2|Table2")};
     }
 
     static class ConcreteEdgeConvertCreateDDL extends EdgeConvertCreateDDL{
 
         public ConcreteEdgeConvertCreateDDL(){
+            this.fields = new EdgeField[]{new EdgeField("1|Field"), new EdgeField("2|Field2")};
+            this.tables = new EdgeTable[]{new EdgeTable("1|Table"), new EdgeTable("2|Table2")};
+
         }
 
         @Override
@@ -62,6 +65,6 @@ public class EdgeConvertCreateDDLTest {
 
     @Test
     public void tablesTest(){
-        assertEquals(1, concrete.getField(0).getNumFigure());
+        assertEquals(1, concrete.getField(1).getNumFigure());
     }
 }

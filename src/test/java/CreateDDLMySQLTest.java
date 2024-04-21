@@ -19,7 +19,7 @@ public class CreateDDLMySQLTest extends CreateDDLMySQL{
 
     @Test
     public void testConstructorWithCorrectInfo(){
-        EdgeConvertFileParser convert = new EdgeConvertFileParser(new File("Courses2.edg.sav"));
+        EdgeSaveParser convert = new EdgeSaveParser(new File("Courses2.edg.sav"));
 
         String one = "Table: 1\n" +
                 "{\n" +
@@ -84,7 +84,7 @@ public class CreateDDLMySQLTest extends CreateDDLMySQL{
 
     @Test
     public void testCreateDDLWithConnections(){
-        EdgeConvertFileParser convert = new EdgeConvertFileParser(new File("Courses3.edg.sav"));
+        EdgeSaveParser convert = new EdgeSaveParser(new File("Courses3.edg.sav"));
         CreateDDLMySQL testObj = new CreateDDLMySQL(convert.getEdgeTables(), convert.getEdgeFields());
         testObj.createDDL();
 
@@ -93,12 +93,12 @@ public class CreateDDLMySQLTest extends CreateDDLMySQL{
                 "USE MySQLDB;\n" +
                 "CREATE TABLE STUDENT (\n" +
                 "\tStudentSSN VARCHAR(1),\n" +
-                "\tStudentName VARCHAR(1),\n" +
+                "\tStudentName VARCHAR(1)\n" +
                 ");\n" +
                 "\n" +
                 "CREATE TABLE COURSES (\n" +
                 "\tGrade VARCHAR(1),\n" +
-                "\tNumber VARCHAR(1),\n" +
+                "\tNumber VARCHAR(1)\n" +
                 ");\n" +
                 "\n" +
                 "CREATE TABLE FACULTY (\n" +
@@ -128,14 +128,14 @@ public class CreateDDLMySQLTest extends CreateDDLMySQL{
 
     @Test(expected = Exception.class)
     public void testCreateDDLWithCorruptedInfo(){
-        EdgeConvertFileParser convert = new EdgeConvertFileParser(new File("Courses4.edg.sav"));
+        EdgeSaveParser convert = new EdgeSaveParser(new File("Courses4.edg.sav"));
         CreateDDLMySQL testObj = new CreateDDLMySQL(convert.getEdgeTables(), convert.getEdgeFields());
         testObj.createDDL();
     }
 
     @Test
     public void testCreateDDLWithSQLInjection(){
-        EdgeConvertFileParser convert = new EdgeConvertFileParser(new File("Courses8.edg.sav"));
+        EdgeSaveParser convert = new EdgeSaveParser(new File("Courses8.edg.sav"));
         CreateDDLMySQL testObj = new CreateDDLMySQL(convert.getEdgeTables(), convert.getEdgeFields());
         testObj.createDDL();
         String test = testObj.sb.toString().replaceAll("\r\n", "");;
@@ -144,23 +144,23 @@ public class CreateDDLMySQLTest extends CreateDDLMySQL{
     }
     @Test
     public void testGetSQLStringExpectedSQLString() throws AWTException {
-        EdgeConvertFileParser convert = new EdgeConvertFileParser(new File("Courses2.edg.sav"));
+        EdgeSaveParser convert = new EdgeSaveParser(new File("Courses2.edg.sav"));
         CreateDDLMySQL testObj = new CreateDDLMySQL(convert.getEdgeTables(), convert.getEdgeFields());
         String sqlString = "CREATE DATABASE MySQLDB;\n" +
                 "USE MySQLDB;\n" +
                 "CREATE TABLE STUDENT (\n" +
                 "\tStudentSSN VARCHAR(1),\n" +
-                "\tStudentName VARCHAR(1),\n" +
+                "\tStudentName VARCHAR(1)\n" +
                 ");\n" +
                 "\n" +
                 "CREATE TABLE FACULTY (\n" +
                 "\tFacultyName VARCHAR(1),\n" +
-                "\tFacSSN VARCHAR(1),\n" +
+                "\tFacSSN VARCHAR(1)\n" +
                 ");\n" +
                 "\n" +
                 "CREATE TABLE COURSES (\n" +
                 "\tGrade VARCHAR(1),\n" +
-                "\tNumber VARCHAR(1),\n" +
+                "\tNumber VARCHAR(1)\n" +
                 ");";
         String expected = sqlString.trim().replaceAll("\\r\\n", "\n").replaceAll("\\r", "\n");
         String actual = testObj.getSQLString().trim().replaceAll("\\r\\n", "\n").replaceAll("\\r", "\n");
