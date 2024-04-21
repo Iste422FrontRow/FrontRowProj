@@ -10,15 +10,12 @@ public class EdgeSaveParser extends EdgeConvertFileParser {
  
    private BufferedReader br;
     private int numFigure;
-    public static final String DELIM = "|";
-   public static Logger log = LogManager.getLogger(EdgeSaveParser.class);
-    private File parseFile;
+    public static Logger log = LogManager.getLogger(EdgeSaveParser.class);
 
-   public EdgeSaveParser(File parseFile){
-       super();
-       numFigure = 0;
-       this.parseFile = parseFile;
-       this.openFile(parseFile);
+    public EdgeSaveParser(File parseFile){
+        super();
+        numFigure = 0;
+        this.openFile(parseFile);
 
    }
 
@@ -105,10 +102,14 @@ public class EdgeSaveParser extends EdgeConvertFileParser {
         } // try
         catch (FileNotFoundException fnfe) {
             log.error("Cannot find file: {}", inputFile.getName());
+            JOptionPane.showMessageDialog(null, "Cannot find file: " + inputFile.getName());
+
             System.exit(0);
         } // catch FileNotFoundException
         catch (IOException ioe) {
             log.error("Error reading file: {}", ioe.getMessage());
+            JOptionPane.showMessageDialog(null, "Error reading file:: " + ioe.getMessage());
+
             System.exit(0);
         } // catch IOException
     }

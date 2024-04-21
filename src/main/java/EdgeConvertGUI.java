@@ -1275,7 +1275,6 @@
                    log.info("Loading an edge file");
                   parseFile = jfcEdge.getSelectedFile();
                   ecfp = new EdgeFileParser(parseFile);
-                  ecfp.openFile(parseFile);
                   tables = ecfp.getEdgeTables();
                   for (int i = 0; i < tables.length; i++) {
                      tables[i].makeArrays();
