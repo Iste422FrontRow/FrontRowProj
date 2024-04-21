@@ -3,6 +3,8 @@ import java.util.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import javax.swing.*;
+
 
 public class EdgeSaveParser extends EdgeConvertFileParser {
  
@@ -12,11 +14,11 @@ public class EdgeSaveParser extends EdgeConvertFileParser {
    public static Logger log = LogManager.getLogger(EdgeSaveParser.class);
     private File parseFile;
 
-   public EdgeSaveParser(File parseFile,BufferedReader br){
+   public EdgeSaveParser(File parseFile){
        super();
        numFigure = 0;
        this.parseFile = parseFile;
-       this.br = br;
+       this.openFile(parseFile);
 
    }
 
@@ -79,5 +81,35 @@ public class EdgeSaveParser extends EdgeConvertFileParser {
            }
            alFields.add(tempField);
         }
+
      } // parseSaveFile()
+    public void openFile(File inputFile){
+        int numLine = 0;
+        try {
+            log.info("Opening file: {}", inputFile.getName());
+            FileReader fr = new FileReader(inputFile);
+            br = new BufferedReader(fr);
+            //test for what kind of file we have
+            String currentLine = br.readLine().trim();
+            numLine++;
+
+            if (currentLine.startsWith(SAVE_ID)) { //the file chosen is a Save file created by this applicatio
+                parseSaveFile(); //parse the file
+                br.close();
+                this.makeArrays(); //convert ArrayList objects into arrays of the appropriate Class type
+            } else { //the file chosen is something else
+                JOptionPane.showMessageDialog(null, "Unrecognized file format");
+                log.warn("Unrecognized file format");
+            }
+
+        } // try
+        catch (FileNotFoundException fnfe) {
+            log.error("Cannot find file: {}", inputFile.getName());
+            System.exit(0);
+        } // catch FileNotFoundException
+        catch (IOException ioe) {
+            log.error("Error reading file: {}", ioe.getMessage());
+            System.exit(0);
+        } // catch IOException
+    }
 }
